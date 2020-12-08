@@ -8,12 +8,12 @@
     <title>西大微店注册</title>
     <meta name="description" content="">
     <meta name="author" content="templatemo">
+    <base href="http://localhost:8080/SWU_Station/">
 
     <link href='http://fonts.useso.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/templatemo-style.css" rel="stylesheet">
-    <base href="http://localhost:8080/SWU_Station/">
 
 </head>
 <body class="light-gray-bg">
@@ -24,15 +24,7 @@
     </header>
     <!--表单部分吴朝旭完成-->
     <form action="registerServlet" class="templatemo-login-form" method="post">
-        <!--===学生卡号=============================-->
-        <div class="form-group">
-            <div class="input-group">
-                <!--                <div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>-->
-                <div class="input-group-addon">校园卡号&nbsp</div>
 
-                <input type="text" class="form-control" name="id">
-            </div>
-        </div>
         <!--===用户名=============================-->
         <div class="form-group">
             <div class="input-group">

@@ -9,8 +9,10 @@
 <html>
 <head>
     <title>登陆成功</title>
+    <base href="http://localhost:8080/SWU_Station/">
 </head>
 <body>
 <h1>登陆成功</h1>
+${sessionScope.user}
 </body>
 </html>

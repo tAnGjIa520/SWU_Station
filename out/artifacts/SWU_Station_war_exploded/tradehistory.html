@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">  
-    <title>Visual Admin Dashboard - Manage Users</title>
+    <title>${sessionScope.user.username}的交易记录</title>
     <meta name="description" content="">
     <meta name="author" content="templatemo">
     
@@ -27,10 +27,10 @@
       <div class="templatemo-sidebar">
         <header class="templatemo-site-header">
           <div class="square"></div>
-          <h1>Visual Admin</h1>
+          <h1>交易记录</h1>
         </header>
         <div class="profile-photo-container">
-          <img src="images/profile-photo.jpg" alt="Profile Photo" class="img-responsive">  
+          <img src="images/profile-photo.jpg" alt="Profile Photo" class="img-responsive">
           <div class="profile-photo-overlay"></div>
         </div>      
         <!-- Search box -->
@@ -44,14 +44,12 @@
             <i class="fa fa-bars"></i>
           </div>
         <nav class="templatemo-left-nav">          
-          <ul>
-            <li><a href="personspace.html"><i class="fa fa-home fa-fw"></i>Dashboard</a></li>
-            <li><a href="data-visualization.html"><i class="fa fa-bar-chart fa-fw"></i>Charts</a></li>
-            <li><a href="data-visualization.html"><i class="fa fa-database fa-fw"></i>Data Visualization</a></li>
-            <li><a href="maps.html"><i class="fa fa-map-marker fa-fw"></i>Maps</a></li>
-            <li><a href="#" class="active"><i class="fa fa-users fa-fw"></i>Manage Users</a></li>
-            <li><a href="preferences.html"><i class="fa fa-sliders fa-fw"></i>Preferences</a></li>
-            <li><a href="index.jsp"><i class="fa fa-eject fa-fw"></i>Sign Out</a></li>
+          <ul><li><a href="main_index.jsp"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
+            <li><a href="car.html"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
+            <li><a href="myGoods.html" class="active"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
+            <li><a href="#"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
+            <li><a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
+            <li><a href="index.jsp"><i class="fa fa-eject fa-fw"></i>退出系统</a></li>
           </ul>  
         </nav>
       </div>
@@ -61,10 +59,9 @@
           <div class="row">
             <nav class="templatemo-top-nav col-lg-12 col-md-12">
               <ul class="text-uppercase">
-                <li><a href="" class="active">Admin panel</a></li>
-                <li><a href="">Dashboard</a></li>
-                <li><a href="">Overview</a></li>
-                <li><a href="index.jsp">Sign in form</a></li>
+                <li><a href="" class="active">西大微店</a></li>
+                <li><a href="">商城</a></li>
+                <li><a href="">商城</a></li>
               </ul>  
             </nav> 
           </div>
@@ -75,17 +72,17 @@
               <table class="table table-striped table-bordered templatemo-user-table">
                 <thead>
                   <tr>
-                    <td><a href="" class="white-text templatemo-sort-by"># <span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">First Name <span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">Last Name <span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">User Name <span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">Email <span class="caret"></span></a></td>
-                    <td>Edit</td>
-                    <td>Action</td>
-                    <td>Delete</td>
+                    <td><a href="" class="white-text templatemo-sort-by">商品id<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">商品名<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">价格<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">状态<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">交易时间<span class="caret"></span></a></td>
+                    <td>数量</td>
+                    <td>删除</td>
+                    <td>交易</td>
                   </tr>
                 </thead>
-                <tbody>
+               <!-- <tbody>
                   <tr>
                     <td>1.</td>
                     <td>John</td>
@@ -135,7 +132,7 @@
                     <td><a href="" class="templatemo-edit-btn">Edit</a></td>
                     <td><a href="" class="templatemo-link">Action</a></td>
                     <td><a href="" class="templatemo-link">Delete</a></td>
-                  </tr>  
+                  </tr>
                    <tr>
                     <td>6.</td>
                     <td>Will</td>
@@ -145,7 +142,7 @@
                     <td><a href="" class="templatemo-edit-btn">Edit</a></td>
                     <td><a href="" class="templatemo-link">Action</a></td>
                     <td><a href="" class="templatemo-link">Delete</a></td>
-                  </tr>  
+                  </tr>
                    <tr>
                     <td>7.</td>
                     <td>Steven</td>
@@ -155,7 +152,7 @@
                     <td><a href="" class="templatemo-edit-btn">Edit</a></td>
                     <td><a href="" class="templatemo-link">Action</a></td>
                     <td><a href="" class="templatemo-link">Delete</a></td>
-                  </tr>  
+                  </tr>
                    <tr>
                     <td>8.</td>
                     <td>Landi</td>
@@ -165,17 +162,17 @@
                     <td><a href="" class="templatemo-edit-btn">Edit</a></td>
                     <td><a href="" class="templatemo-link">Action</a></td>
                     <td><a href="" class="templatemo-link">Delete</a></td>
-                  </tr>                    
-                </tbody>
+                  </tr>
+                </tbody>-->
               </table>    
             </div>                          
           </div>          
-          <div class="templatemo-flex-row flex-content-row">
+          <!--<div class="templatemo-flex-row flex-content-row">
             <div class="col-1">
               <div class="panel panel-default margin-10">
                 <div class="panel-heading"><h2 class="text-uppercase">Login Form</h2></div>
                 <div class="panel-body">
-                  <form action="personspace.html" class="templatemo-login-form">
+                  <form action="main_index.jsp" class="templatemo-login-form">
                     <div class="form-group">
                       <label for="inputEmail">Email address</label>
                       <input type="email" class="form-control" id="inputEmail" placeholder="Enter email">
@@ -210,7 +207,7 @@
                 <p class="margin-bottom-0">Phasellus dapibus nulla quis risus auctor, non placerat augue consectetur. Aliquam convallis pharetra odio, in convallis erat molestie sed. Fusce mi lacus, semper sit amet mattis eu, volutpat vitae enim.</p>                
               </div>            
             </div>                       
-          </div> <!-- Second row ends -->
+          </div> &lt;!&ndash; Second row ends &ndash;&gt;
           <div class="templatemo-flex-row flex-content-row">
             <div class="templatemo-content-widget white-bg col-2">
               <i class="fa fa-times"></i>
@@ -224,8 +221,8 @@
                   <h2 class="media-heading text-uppercase blue-text">John Barnet</h2>
                   <p>Project Manager</p>
                 </div>        
-              </div>
-              <div class="table-responsive">
+              </div>-->
+           <!--   <div class="table-responsive">
                 <table class="table">
                   <tbody>
                     <tr>
@@ -251,8 +248,8 @@
                   </tbody>
                 </table>
               </div>             
-            </div>
-            <div class="templatemo-content-widget white-bg col-1 text-center templatemo-position-relative">
+            </div>-->
+<!--            <div class="templatemo-content-widget white-bg col-1 text-center templatemo-position-relative">
               <i class="fa fa-times"></i>
               <img src="images/person.jpg" alt="Bicycle" class="img-circle img-thumbnail margin-bottom-30">
               <h2 class="text-uppercase blue-text margin-bottom-5">Paul Smith</h2>
@@ -268,21 +265,22 @@
                   <i class="fa fa-google-plus templatemo-social-icon"></i>  
                 </div>                
               </div>
-            </div>
-            <div class="templatemo-content-widget white-bg col-1 templatemo-position-relative templatemo-content-img-bg">
+            </div>-->
+           <!-- <div class="templatemo-content-widget white-bg col-1 templatemo-position-relative templatemo-content-img-bg">
               <img src="images/sunset-big.jpg" alt="Sunset" class="img-responsive content-bg-img">
-              <i class="fa fa-heart"></i>
+              <i class="fa fa-heart"></i><h1>=================================</h1>
               <h2 class="templatemo-position-relative white-text">Sunset</h2>
               <div class="view-img-btn-wrap">
                 <a href="" class="btn btn-default templatemo-view-img-btn">View</a>  
               </div>              
-            </div>
+            </div>-->
           </div>
+<!--          页脚-->
           <div class="pagination-wrap">
             <ul class="pagination">
               <li><a href="#">1</a></li>
               <li><a href="#">2</a></li>
-              <li class="active"><a href="#">3 <span class="sr-only">(current)</span></a></li>
+              <li class="active"><a href="#">3<span class="sr-only">(current)</span></a></li>
               <li><a href="#">4</a></li>
               <li><a href="#">5</a></li>
               <li>

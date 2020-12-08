@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">  
-    <title>Visual Admin Dashboard - Home</title>
+    <title>${sessionScope.user.username}的主页</title>
+    <base href="http://localhost:8080/SWU_Station/">
     <meta name="description" content="">
     <meta name="author" content="templatemo">
     
@@ -18,7 +19,7 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>-->
 <!--      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>-->
-    <![endif]-->
+<%--    <![endif]-->--%>
 
   </head>
   <body>  
@@ -27,10 +28,10 @@
       <div class="templatemo-sidebar">
         <header class="templatemo-site-header">
           <div class="square"></div>
-          <h1>Visual Admin</h1>
+          <h1>您好！${sessionScope.user.username}</h1>
         </header>
         <div class="profile-photo-container">
-          <img src="images/profile-photo.jpg" alt="Profile Photo" class="img-responsive">  
+          <img src="images/profile-photo.jpg" alt="Profile Photo" class="img-responsive">
           <div class="profile-photo-overlay"></div>
         </div>      
         <!-- Search box -->
@@ -45,11 +46,11 @@
         </div>
         <nav class="templatemo-left-nav">
           <ul>
-            <li><a href="main_index.html" class="active"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
+            <li><a href="main_index.jsp" class="active"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
             <li><a href="car.html"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
             <li><a href="myGoods.html"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
             <li><a href="#"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
-            <li><a href="person_setting.html"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
+            <li><a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
             <li><a href="index.jsp"><i class="fa fa-eject fa-fw"></i>退出系统</a></li>
           </ul>
         </nav>
@@ -200,7 +201,7 @@
           </div>
           <footer class="text-right">
             <p>Copyright &copy; 2084 Company Name
-            | More Templates <a href="https://yihaowangluo.taobao.com/" target="_blank" title="天字一号网络">天字一号网络</a> - Collect from <a href="https://yihaowangluo.taobao.com/" title="网页模板" target="_blank">网页模板</a></p>
+            | More Templates </p>
           </footer>
         </div>
       </div>
@@ -211,7 +212,7 @@
     <script src="js/jquery-migrate-1.2.1.min.js"></script> <!--  jQuery Migrate Plugin -->
     <script src="https://www.google.com/jsapi"></script> <!-- Google Chart -->
     <script>
-      /* Google Chart 
+      /* Google Chart
       -------------------------------------------------------------------*/
       // Load the Visualization API and the piechart package.
       google.load('visualization', '1.0', {'packages':['corechart']});

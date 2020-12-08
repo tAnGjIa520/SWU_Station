@@ -7,8 +7,8 @@ import java.util.Objects;
  */
 
 public class Good {
-    private String saler;//卖家id{存的是校园卡卡号}
     private int id;
+    private String saler;//卖家username
     private int price;
     private String goodname;//商品名字
     private String description;//商品描述

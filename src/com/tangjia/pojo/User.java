@@ -9,13 +9,13 @@ public class User {
     private String username;//用户名
     private String password;//密码
     private String email;//邮箱
-    private int id;//学生卡号
-    private int trade_number;//有效交易次数
+    private Integer id;
+    private Integer trade_number;//有效交易次数
 
     public User() {
     }
 
-    public User(String username, String password, String email, int id) {
+    public User(String username, String password, String email,Integer id) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -23,7 +23,7 @@ public class User {
         this.trade_number=0;
     }
 
-    public User( int id,String username, String password, String email, int trade_number) {
+    public User( int id,String username, String password, String email, Integer trade_number) {
         this.username = username;
         this.password = password;
         this.email = email;

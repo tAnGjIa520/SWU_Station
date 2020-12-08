@@ -2,6 +2,8 @@ package com.tangjia.service;
 
 import com.tangjia.pojo.User;
 
+import javax.swing.undo.UndoableEditSupport;
+
 public interface UserService {
 
     /**
@@ -27,5 +29,7 @@ public interface UserService {
      * @return
      */
     public User register(User user);
+
+    public User setUser(User user);
 
 }

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">  
-    <title>交易记录</title>
+    <title>${sessionScope.user.username}的交易记录</title>
     <meta name="description" content="">
     <meta name="author" content="templatemo">
     
@@ -30,7 +30,7 @@
           <h1>交易记录</h1>
         </header>
         <div class="profile-photo-container">
-          <img src="images/profile-photo.jpg" alt="Profile Photo" class="img-responsive">  
+          <img src="images/profile-photo.jpg" alt="Profile Photo" class="img-responsive">
           <div class="profile-photo-overlay"></div>
         </div>      
         <!-- Search box -->
@@ -44,11 +44,11 @@
             <i class="fa fa-bars"></i>
           </div>
         <nav class="templatemo-left-nav">          
-          <ul><li><a href="main_index.html"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
+          <ul><li><a href="main_index.jsp"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
             <li><a href="car.html"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
             <li><a href="myGoods.html" class="active"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
             <li><a href="#"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
-            <li><a href="person_setting.html"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
+            <li><a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
             <li><a href="index.jsp"><i class="fa fa-eject fa-fw"></i>退出系统</a></li>
           </ul>  
         </nav>
@@ -172,7 +172,7 @@
               <div class="panel panel-default margin-10">
                 <div class="panel-heading"><h2 class="text-uppercase">Login Form</h2></div>
                 <div class="panel-body">
-                  <form action="main_index.html" class="templatemo-login-form">
+                  <form action="main_index.jsp" class="templatemo-login-form">
                     <div class="form-group">
                       <label for="inputEmail">Email address</label>
                       <input type="email" class="form-control" id="inputEmail" placeholder="Enter email">

@@ -25,16 +25,20 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User register(User user) {
-        System.out.println(userDao.queryUserByUsername(user.getUsername()));
+
         if (userDao.queryUserByUsername(user.getUsername())==null){
             userDao.addUser(user);
-            
 
         }else{
-            System.out.println("================");
-            System.out.println(userDao.queryUserByUsername(user.getUsername()));
             return null;
         }
         return user;
+    }
+
+    @Override
+    public User setUser(User user) {
+        userDao.setUser(user);
+        return userDao.queryUserByUsernameAndPassword(user.getUsername(),user.getPassword());
+
     }
 }

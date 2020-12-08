@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">  
-    <title>Visual Admin Dashboard - Home</title>
+    <title>${sessionScope.user.username}的主页</title>
+    <base href="http://localhost:8080/SWU_Station/">
     <meta name="description" content="">
     <meta name="author" content="templatemo">
     
@@ -16,9 +17,9 @@
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>-->
+<!--      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>-->
+<%--    <![endif]-->--%>
 
   </head>
   <body>  
@@ -27,10 +28,10 @@
       <div class="templatemo-sidebar">
         <header class="templatemo-site-header">
           <div class="square"></div>
-          <h1>Visual Admin</h1>
+          <h1>您好！${sessionScope.user.username}</h1>
         </header>
         <div class="profile-photo-container">
-          <img src="images/profile-photo.jpg" alt="Profile Photo" class="img-responsive">  
+          <img src="images/profile-photo.jpg" alt="Profile Photo" class="img-responsive">
           <div class="profile-photo-overlay"></div>
         </div>      
         <!-- Search box -->
@@ -43,16 +44,15 @@
         <div class="mobile-menu-icon">
             <i class="fa fa-bars"></i>
         </div>
-        <nav class="templatemo-left-nav">          
+        <nav class="templatemo-left-nav">
           <ul>
-            <li><a href="#" class="active"><i class="fa fa-home fa-fw"></i>Dashboard</a></li>
-            <li><a href="data-visualization.html"><i class="fa fa-bar-chart fa-fw"></i>Charts</a></li>
-            <li><a href="data-visualization.html"><i class="fa fa-database fa-fw"></i>Data Visualization</a></li>
-            <li><a href="maps.html"><i class="fa fa-map-marker fa-fw"></i>Maps</a></li>
-            <li><a href="manage-users.html"><i class="fa fa-users fa-fw"></i>Manage Users</a></li>
-            <li><a href="preferences.html"><i class="fa fa-sliders fa-fw"></i>Preferences</a></li>
-            <li><a href="index.jsp"><i class="fa fa-eject fa-fw"></i>Sign Out</a></li>
-          </ul>  
+            <li><a href="main_index.jsp" class="active"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
+            <li><a href="car.html"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
+            <li><a href="myGoods.html"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
+            <li><a href="#"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
+            <li><a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
+            <li><a href="index.jsp"><i class="fa fa-eject fa-fw"></i>退出系统</a></li>
+          </ul>
         </nav>
       </div>
       <!-- Main content --> 
@@ -61,48 +61,19 @@
           <div class="row">
             <nav class="templatemo-top-nav col-lg-12 col-md-12">
               <ul class="text-uppercase">
-                <li><a href="" class="active">Admin panel</a></li>
-                <li><a href="">Dashboard</a></li>
-                <li><a href="">Overview</a></li>
-                <li><a href="index.jsp">Sign in form</a></li>
-              </ul>  
-            </nav> 
+                <li><a href="" class="active">商城</a></li>
+                <li><a href=""></a></li>
+                <li><a href="">商城</a></li>
+                <li><a href="index.jsp">商城</a></li>
+              </ul>
+            </nav>
           </div>
         </div>
         <div class="templatemo-content-container">
           <div class="templatemo-flex-row flex-content-row">
-            <div class="templatemo-content-widget white-bg col-2">
-              <i class="fa fa-times"></i>
-              <div class="square"></div>
-              <h2 class="templatemo-inline-block">Visual Admin Template</h2><hr>
-              <p>Works on all major browsers. IE 10+. Visual Admin is <a href="https://yihaowangluo.taobao.com/tag/admin" target="_parent">free responsive admin template</a> for everyone. Feel free to use this template for your backend user interfaces. Please tell your friends about <a href="http://www.templatemo.com" target="_parent">templatemo.com</a> website. You may <a href="https://yihaowangluo.taobao.com/contact" target="_parent">contact us</a> if you have anything to say.</p>
-              <p>Nunc placerat purus eu tincidunt consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus nulla quis risus auctor, non placerat augue consectetur. Fusce mi lacus, semper sit amet mattis eu.</p>              
-            </div>
-            <div class="templatemo-content-widget white-bg col-1 text-center">
-              <i class="fa fa-times"></i>
-              <h2 class="text-uppercase">Maris</h2>
-              <h3 class="text-uppercase margin-bottom-10">Design Project</h3>
-              <img src="images/bicycle.jpg" alt="Bicycle" class="img-circle img-thumbnail">
-            </div>
-            <div class="templatemo-content-widget white-bg col-1">
-              <i class="fa fa-times"></i>
-              <h2 class="text-uppercase">Dictum</h2>
-              <h3 class="text-uppercase">Sedvel Erat Non</h3><hr>
-              <div class="progress">
-                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-              </div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
-              </div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-              </div>                          
-            </div>
-          </div>
-          <div class="templatemo-flex-row flex-content-row">
-            <div class="col-1">              
+            <div class="col-1">
               <div class="templatemo-content-widget orange-bg">
-                <i class="fa fa-times"></i>                
+                <i class="fa fa-times"></i>
                 <div class="media">
                   <div class="media-left">
                     <a href="#">
@@ -111,10 +82,10 @@
                   </div>
                   <div class="media-body">
                     <h2 class="media-heading text-uppercase">Consectur Fusce Enim</h2>
-                    <p>Phasellus dapibus nulla quis risus auctor, non placerat augue consectetur.</p>  
-                  </div>        
-                </div>                
-              </div>            
+                    <p>Phasellus dapibus nulla quis risus auctor, non placerat augue consectetur.</p>
+                  </div>
+                </div>
+              </div>
               <div class="templatemo-content-widget white-bg">
                 <i class="fa fa-times"></i>
                 <div class="media">
@@ -125,10 +96,10 @@
                   </div>
                   <div class="media-body">
                     <h2 class="media-heading text-uppercase">Consectur Fusce Enim</h2>
-                    <p>Phasellus dapibus nulla quis risus auctor, non placerat augue consectetur.</p>  
+                    <p>Phasellus dapibus nulla quis risus auctor, non placerat augue consectetur.</p>
                   </div>
-                </div>                
-              </div>            
+                </div>
+              </div>
             </div>
             <div class="col-1">
               <div class="panel panel-default templatemo-content-widget white-bg no-padding templatemo-overflow-hidden">
@@ -174,13 +145,42 @@
                         <td>Paul</td>
                         <td>Richard</td>
                         <td>@pR</td>
-                      </tr>                    
+                      </tr>
                     </tbody>
-                  </table>    
-                </div>                          
+                  </table>
+                </div>
               </div>
-            </div>           
+            </div>
           </div> <!-- Second row ends -->
+          <div class="templatemo-flex-row flex-content-row">
+            <div class="templatemo-content-widget white-bg col-2">
+              <i class="fa fa-times"></i>
+              <div class="square"></div>
+              <h2 class="templatemo-inline-block">Visual Admin Template</h2><hr>
+              <p>Works on all major browsers. IE 10+. Visual Admin is <a href="https://yihaowangluo.taobao.com/tag/admin" target="_parent">free responsive admin template</a> for everyone. Feel free to use this template for your backend user interfaces. Please tell your friends about <a href="http://www.templatemo.com" target="_parent">templatemo.com</a> website. You may <a href="https://yihaowangluo.taobao.com/contact" target="_parent">contact us</a> if you have anything to say.</p>
+              <p>Nunc placerat purus eu tincidunt consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus nulla quis risus auctor, non placerat augue consectetur. Fusce mi lacus, semper sit amet mattis eu.</p>
+            </div>
+            <div class="templatemo-content-widget white-bg col-1 text-center">
+              <i class="fa fa-times"></i>
+              <h2 class="text-uppercase">Maris</h2>
+              <h3 class="text-uppercase margin-bottom-10">Design Project</h3>
+              <img src="images/bicycle.jpg" alt="Bicycle" class="img-circle img-thumbnail">
+            </div>
+            <div class="templatemo-content-widget white-bg col-1">
+              <i class="fa fa-times"></i>
+              <h2 class="text-uppercase">Dictum</h2>
+              <h3 class="text-uppercase">Sedvel Erat Non</h3><hr>
+              <div class="progress">
+                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+              </div>
+            </div>
+          </div>
           <div class="copyrights">Collect from <a href="https://yihaowangluo.taobao.com/" >手机天字一号网络</a></div>
           <div class="templatemo-flex-row flex-content-row templatemo-overflow-hidden"> <!-- overflow hidden for iPad mini landscape view-->
             <div class="col-1 templatemo-overflow-hidden">
@@ -194,15 +194,15 @@
                   <div class="col-1 col-lg-6 col-md-12">
                     <h2 class="text-center">Interactive<span class="badge">new</span></h2>
                     <div id="bar_chart_div" class="templatemo-chart"></div> <!-- Bar chart div -->
-                  </div>  
-                </div>                
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <footer class="text-right">
-            <p>Copyright &copy; 2084 Company Name 
-            | More Templates <a href="https://yihaowangluo.taobao.com/" target="_blank" title="天字一号网络">天字一号网络</a> - Collect from <a href="https://yihaowangluo.taobao.com/" title="网页模板" target="_blank">网页模板</a></p>
-          </footer>         
+            <p>Copyright &copy; 2084 Company Name
+            | More Templates </p>
+          </footer>
         </div>
       </div>
     </div>
@@ -212,7 +212,7 @@
     <script src="js/jquery-migrate-1.2.1.min.js"></script> <!--  jQuery Migrate Plugin -->
     <script src="https://www.google.com/jsapi"></script> <!-- Google Chart -->
     <script>
-      /* Google Chart 
+      /* Google Chart
       -------------------------------------------------------------------*/
       // Load the Visualization API and the piechart package.
       google.load('visualization', '1.0', {'packages':['corechart']});

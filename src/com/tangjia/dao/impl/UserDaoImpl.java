@@ -12,7 +12,7 @@ public class UserDaoImpl implements UserDao {
     public int setUser(User user) {
         Connection conn = JDBCutils.getConnectino();
         int i = 0;
-        String sql=String.format("update USER set password='%s',email='%s',trade_number=%d where username= '%s'",user.getPassword(),user.getEmail(),user.getTrade_number(),user.getUsername());
+        String sql=String.format("update USER set username='%s',password='%s',email='%s',trade_number=%d where id= %d",user.getUsername(),user.getPassword(),user.getEmail(),user.getTrade_number(),user.getId());
         System.out.println(sql);
         PreparedStatement pstmt;
         try {
@@ -105,7 +105,7 @@ public class UserDaoImpl implements UserDao {
         try {
             statement = connection.createStatement();
 //          String sql="INSERT INTO USER (`id`,`username`,`password`,`email`,`trade_number`) VALUES ( "+user.getId()+" , "+user.getUsername()+" , "+user.getPassword()+","+user.getEmail()+","+user.getTrade_number()+");";
-            String sql=String.format("INSERT INTO USER (id,username,password,email,trade_number) VALUES ( '%d','%s','%s','%s','%d');",user.getId(),user.getUsername(),user.getPassword(),user.getEmail(),user.getTrade_number());
+            String sql=String.format("INSERT INTO USER (username,password,email,trade_number) VALUES ( '%s','%s','%s','%d');",user.getUsername(),user.getPassword(),user.getEmail(),user.getTrade_number());
             number= statement.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -125,7 +125,7 @@ public class UserDaoImpl implements UserDao {
     public int deleteUser(User user) {
         Connection conn = JDBCutils.getConnectino();
         int i = 0;
-        String sql = String.format("delete from USER where username= '%s';",user.getUsername());
+        String sql = String.format("delete from USER where id= %d;",user.getId());
         PreparedStatement pstmt;
         try {
             pstmt = (PreparedStatement) conn.prepareStatement(sql);
