@@ -8,40 +8,27 @@ import java.util.Objects;
 
 public class Good {
     private String saler;//卖家id{存的是校园卡卡号}
-    private String id;
+    private int id;
+    private int price;
     private String goodname;//商品名字
     private String description;//商品描述
-    private int goodstatus;//商品状态{o->还没有被交易,1->已经被交易}
+    private int status;//商品状态{o->还没有被交易,1->已经被交易}
     private String date;//：交易时间格式年月日时分秒例如20200912121536中间没有空格直接连着写
     private String client;//顾客是谁
 
     public Good() {
     }
 
-    @Override
-    public String toString() {
-        return "Good{" +
-                "saler='" + saler + '\'' +
-                ", id='" + id + '\'' +
-                ", goodname='" + goodname + '\'' +
-                ", description='" + description + '\'' +
-                ", goodstatus=" + goodstatus +
-                ", date='" + date + '\'' +
-                ", client='" + client + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Good good = (Good) o;
-        return id.equals(good.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    /**
+     * 用于记录商品的信息
+     * @param saler 卖家的名字（一定知道）
+     * @param price 价格（一定知道）
+     * @param goodname  商品的名字（一定知道）
+     */
+    public Good(String saler, int price, String goodname) {
+        this.saler = saler;
+        this.price = price;
+        this.goodname = goodname;
     }
 
     public String getSaler() {
@@ -52,12 +39,21 @@ public class Good {
         this.saler = saler;
     }
 
-    public String getId() {
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public String getGoodname() {
@@ -76,12 +72,12 @@ public class Good {
         this.description = description;
     }
 
-    public int getGoodstatus() {
-        return goodstatus;
+    public int getStatus() {
+        return status;
     }
 
-    public void setGoodstatus(int goodstatus) {
-        this.goodstatus = goodstatus;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public String getDate() {
@@ -98,5 +94,32 @@ public class Good {
 
     public void setClient(String client) {
         this.client = client;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Good good = (Good) o;
+        return id == good.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Good{" +
+                "saler='" + saler + '\'' +
+                ", id='" + id + '\'' +
+                ", price=" + price +
+                ", goodname='" + goodname + '\'' +
+                ", description='" + description + '\'' +
+                ", status=" + status +
+                ", date='" + date + '\'' +
+                ", client='" + client + '\'' +
+                '}';
     }
 }
