@@ -1,5 +1,6 @@
 package com.tangjia.pojo;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -7,53 +8,55 @@ import java.util.Objects;
  */
 
 public class Good {
-    private int id;
-    private String saler;//卖家username
-    private int price;
-    private String goodname;//商品名字
+    /*  id,goodname,saler,description,STATUS,DATE,CLIENT,price,photo*/
+    private Integer id;//-----------------------------默认
+    private String goodname;//商品名字===========================
+    private Integer saler;//卖家username===============================
+
+
     private String description;//商品描述
-    private int status;//商品状态{o->还没有被交易,1->已经被交易}
+    private Integer status=0;//商品状态{o->还没有被交易,1->已经被交易}//-----------------------------默认
     private String date;//：交易时间格式年月日时分秒例如20200912121536中间没有空格直接连着写
     private String client;//顾客是谁
+    private BigDecimal price;//============================
+    private String photo = "default/photo/default.jpg";////-----------------------------默认
 
     public Good() {
     }
 
-    /**
-     * 用于记录商品的信息
-     * @param saler 卖家的名字（一定知道）
-     * @param price 价格（一定知道）
-     * @param goodname  商品的名字（一定知道）
-     */
-    public Good(String saler, int price, String goodname) {
+    public Good(String goodname, Integer saler, BigDecimal price) {
+        this.goodname = goodname;
         this.saler = saler;
         this.price = price;
+    }
+
+    public Good(Integer id, String goodname, Integer saler,  String description, Integer status, String date, String client,BigDecimal price, String photo) {
+        /*  id,goodname,saler,description,STATUS,DATE,CLIENT,price,photo*/
+        if (id != null) {
+            this.id = id;
+        }
         this.goodname = goodname;
-    }
-
-    public String getSaler() {
-        return saler;
-    }
-
-    public void setSaler(String saler) {
         this.saler = saler;
+        this.price = price;
+        this.description = description;
+        if (status ==null ) {
+            this.status = 0;
+        }else {this.status = status;}
+
+
+        this.date = date;
+        this.client = client;
+        if (photo!=null){
+            this.photo = photo;
+        }
+
     }
-
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
     }
 
     public String getGoodname() {
@@ -64,6 +67,22 @@ public class Good {
         this.goodname = goodname;
     }
 
+    public Integer getSaler() {
+        return saler;
+    }
+
+    public void setSaler(Integer saler) {
+        this.saler = saler;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -72,11 +91,11 @@ public class Good {
         this.description = description;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -96,30 +115,26 @@ public class Good {
         this.client = client;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Good good = (Good) o;
-        return id == good.id;
+    public String getPhoto() {
+        return photo;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     @Override
     public String toString() {
         return "Good{" +
-                "saler='" + saler + '\'' +
-                ", id='" + id + '\'' +
-                ", price=" + price +
+                "id=" + id +
                 ", goodname='" + goodname + '\'' +
+                ", saler=" + saler +
                 ", description='" + description + '\'' +
                 ", status=" + status +
                 ", date='" + date + '\'' +
                 ", client='" + client + '\'' +
+                ", price=" + price +
+                ", photo='" + photo + '\'' +
                 '}';
     }
 }

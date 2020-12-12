@@ -23,8 +23,8 @@
         <h1>注册</h1>
     </header>
     <!--表单部分吴朝旭完成-->
-    <form action="registerServlet" class="templatemo-login-form" method="post">
-
+    <form action="userServlet" class="templatemo-login-form" method="post">
+        <input type="hidden" name="action" value="login">
         <!--===用户名=============================-->
         <div class="form-group">
             <div class="input-group">

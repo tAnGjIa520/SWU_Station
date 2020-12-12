@@ -5,14 +5,19 @@ import com.tangjia.dao.impl.UserDaoImpl;
 import com.tangjia.pojo.User;
 import org.junit.Test;
 
+
+import java.sql.Time;
+import java.util.Date;
+
+
 import static org.junit.Assert.*;
 
 public class UserDaoImplTest {
     UserDao userDao = new UserDaoImpl();
-    User user=new User("roww","123","email",null);
+    User user=new User("123","123456","email",null);
     @Test
     public void setUser() {
-        userDao.setUser(new User(1,"root","1ass23","email",100));
+        userDao.setUser(new User(1,"r33ot","1ass23","email",100));
     }
 
     @Test
@@ -29,13 +34,7 @@ public class UserDaoImplTest {
 
     @Test
     public void addUser() {
-        int i = userDao.addUser(user);
-        System.out.println(i);
+
     }
 
-    @Test
-    public void deleteUser() {
-        user.setId(9);
-        userDao.deleteUser(user);
-    }
 }

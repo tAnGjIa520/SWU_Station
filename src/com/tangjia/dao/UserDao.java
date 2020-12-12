@@ -6,8 +6,6 @@ public interface UserDao {
     //基本思路增删查改
     public int addUser(User user);
 
-    public int deleteUser(User user);
-
     public User queryUserByUsername(String username);
 
     public User queryUserByUsernameAndPassword(String username,String password);

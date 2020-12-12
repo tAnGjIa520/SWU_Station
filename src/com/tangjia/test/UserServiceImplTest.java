@@ -18,8 +18,8 @@ public class UserServiceImplTest {
 
     @Test
     public void login() {
-//        System.out.println(userService.login());
-
+/*//        System.out.println(userService.login());*/
+        System.out.println(userService.login("1234","1234"));
     }
 
     @Test

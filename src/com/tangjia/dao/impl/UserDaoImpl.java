@@ -3,141 +3,39 @@ package com.tangjia.dao.impl;
 import com.tangjia.Utils.JDBCutils;
 import com.tangjia.dao.UserDao;
 import com.tangjia.pojo.User;
+import org.apache.commons.dbutils.QueryRunner;
 
+import java.beans.JavaBean;
 import java.sql.*;
 import java.util.Enumeration;
 
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl extends BaseDao implements UserDao {
+
     @Override
     public int setUser(User user) {
-        Connection conn = JDBCutils.getConnectino();
-        int i = 0;
-        String sql=String.format("update USER set username='%s',password='%s',email='%s',trade_number=%d where id= %d",user.getUsername(),user.getPassword(),user.getEmail(),user.getTrade_number(),user.getId());
-        System.out.println(sql);
-        PreparedStatement pstmt;
-        try {
-            pstmt = (PreparedStatement) conn.prepareStatement(sql);
-            i = pstmt.executeUpdate();
-            System.out.println("resutl: " + i);
-            pstmt.close();
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-
-        }finally {
-            JDBCutils.close(conn);
-        }
-        return i;
+        String sql="update USER set username=?,password=?,email=?,trade_number=? where id= ?";
+        return update(sql,user.getUsername(),user.getPassword(),user.getEmail(),user.getTrade_number(),user.getId());
     }
 
     @Override
     public User queryUserByUsername(String username) {
-        String sql = "select * from USER;";
-        //3.通过数据库的连接操作数据库，实现增删改查
-        Connection connectino = JDBCutils.getConnectino();
-        User user = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet rs = null;
-        try {
-            preparedStatement = connectino.prepareStatement(sql);
-            rs = preparedStatement.executeQuery();
-            while(rs.next()){
-                if (rs.getString("username").equals(username)){
-                    user=new User(rs.getInt("id"),rs.getString("username"),rs.getString("password"),rs.getString("email"),rs.getInt("trade_number"));
-                    System.out.println(user);
-                    System.out.println("=====222");
-                    break;
-//                            new User(rs.getInt("id"),rs.getString("name"),rs.getInt("age"));
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }finally {
-            try {
-                preparedStatement.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            JDBCutils.close(connectino);
-
-        }
-        return user;
+        String sql = "select * from USER where username=?";
+        return queryForOne(User.class,sql,username);
     }
 
     @Override
     public User queryUserByUsernameAndPassword(String username, String password) {
 
-        String sql = "select * from USER";
-        //3.通过数据库的连接操作数据库，实现增删改查
-        Connection connectino = JDBCutils.getConnectino();
-        User user = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet rs = null;
-        try {
-            preparedStatement = connectino.prepareStatement(sql);
-            rs = preparedStatement.executeQuery();
-            while(rs.next()){
-                if (rs.getString("username").equals(username) &&rs.getString("password").equals(password)  ){
-                    user=new User(rs.getInt("id"),rs.getString("username"),rs.getString("password"),rs.getString("email"),rs.getInt("trade_number"));
-//                            new User(rs.getInt("id"),rs.getString("name"),rs.getInt("age"));
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }finally {
-            try {
-                preparedStatement.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            JDBCutils.close(connectino);
-
-        }
-
-        return user;
-    }
+        String sql = "select * from USER where username=? and password=?";
+        return queryForOne(User.class,sql,username,password);
+}
 
     @Override
     public int addUser(User user) {
-        Connection connection = JDBCutils.getConnectino();
-        int number=0;
-        Statement statement = null;
-        try {
-            statement = connection.createStatement();
-//          String sql="INSERT INTO USER (`id`,`username`,`password`,`email`,`trade_number`) VALUES ( "+user.getId()+" , "+user.getUsername()+" , "+user.getPassword()+","+user.getEmail()+","+user.getTrade_number()+");";
-            String sql=String.format("INSERT INTO USER (username,password,email,trade_number) VALUES ( '%s','%s','%s','%d');",user.getUsername(),user.getPassword(),user.getEmail(),user.getTrade_number());
-            number= statement.executeUpdate(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }finally {
-            try {
-                statement.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            JDBCutils.close(connection);
-        }
-        return number;
+        String sql="INSERT INTO USER (username,password,email,trade_number) VALUES ( ?,?,?,?)";
+        return update(sql, user.getUsername(), user.getPassword(), user.getEmail(), user.getTrade_number());
 
     }
 
-    @Override
-    public int deleteUser(User user) {
-        Connection conn = JDBCutils.getConnectino();
-        int i = 0;
-        String sql = String.format("delete from USER where id= %d;",user.getId());
-        PreparedStatement pstmt;
-        try {
-            pstmt = (PreparedStatement) conn.prepareStatement(sql);
-            i = pstmt.executeUpdate();
 
-            pstmt.close();
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }finally {
-            JDBCutils.close(conn);
-        }
-        return i;
-    }
 }

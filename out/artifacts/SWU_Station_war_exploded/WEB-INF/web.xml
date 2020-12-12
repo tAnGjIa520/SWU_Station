@@ -3,33 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-<!-- 登陆user-->
+
+<!--    UserServelet-->
+<servlet>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>com.tangjia.web.UserServlet</servlet-class>
+</servlet>
     <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>com.tangjia.web.LoginServlet</servlet-class>
-    </servlet>
-  
-    <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/loginServlet</url-pattern>
-    </servlet-mapping>
-<!--   注册user-->
-    <servlet>
-        <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>com.tangjia.web.RegisterServlet</servlet-class>
+        <servlet-name>GoodServlet</servlet-name>
+        <servlet-class>com.tangjia.web.GoodServlet</servlet-class>
     </servlet>
 
+<!--    分割线     -->
     <servlet-mapping>
-        <servlet-name>RegisterServlet</servlet-name>
-        <url-pattern>/registerServlet</url-pattern>
-    </servlet-mapping>
-<!--    修改user-->
-    <servlet>
-        <servlet-name>SetUserServlet</servlet-name>
-        <servlet-class>com.tangjia.web.SetUserServlet</servlet-class>
-    </servlet>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/userServlet</url-pattern>
+</servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SetUserServlet</servlet-name>
-        <url-pattern>/setUserServlet</url-pattern>
+        <servlet-name>GoodServlet</servlet-name>
+        <url-pattern>/goodServlet</url-pattern>
     </servlet-mapping>
 </web-app>

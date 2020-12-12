@@ -67,9 +67,7 @@ public class User {
         return trade_number;
     }
 
-    public void setTrade_number(int trade_number) {
-        this.trade_number = trade_number;
-    }
+
 
     @Override
     public String toString() {

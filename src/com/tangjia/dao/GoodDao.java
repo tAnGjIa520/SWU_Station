@@ -2,6 +2,7 @@ package com.tangjia.dao;
 
 import com.tangjia.pojo.Good;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface GoodDao {
@@ -16,11 +17,14 @@ public interface GoodDao {
     private String client;//顾客是谁*/
     public int addGood(Good good);
 
-    public int deleteGood(Good good);
+    public int deleteGood(int id);
 
-    public Good QuerryById(int id);
+    public List<Good> querryAllGood();
 
-    public List<Good> QuerryBySaler(String salername);
+    public List<Good> querryGoodForSaler(int saler);
+
+    public Good querryGoodById(Integer id);
 
     public int setGood(Good good);
+
 }

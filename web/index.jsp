@@ -22,9 +22,9 @@
 	          <h1>欢迎来到西大微店</h1>
 	        </header>
 	        <!--表单部分吴朝旭完成-->
-	        <form action="loginServlet" class="templatemo-login-form" method="post">
+	        <form action="userServlet" class="templatemo-login-form" method="post">
+				<input type="hidden" name="action" value="login">
 				<!--			用户名-->
-
 				<div class="form-group">
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
