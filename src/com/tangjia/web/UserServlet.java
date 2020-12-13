@@ -16,6 +16,17 @@ import java.lang.reflect.InvocationTargetException;
 
 
 public class UserServlet extends BaseServlet {
+
+    protected void logout(HttpServletRequest request, HttpServletResponse response){
+        request.getSession().invalidate();
+        try {
+            response.sendRedirect(request.getContextPath()+"/index.jsp");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     protected void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
@@ -33,7 +44,6 @@ public class UserServlet extends BaseServlet {
             session.setAttribute("user" ,user);
             request.setAttribute("id",user.getId());
             request.getRequestDispatcher("/main_index.jsp").forward(request,response);
-//            response.sendRedirect();
         }
         System.out.println("============================");
 

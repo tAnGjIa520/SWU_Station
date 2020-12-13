@@ -35,7 +35,7 @@ h6 { font-size: 14px; margin: 0 0 5px; padding: 0; }
 .h50 { height: 50px }
 .h60 { height: 60px }
 
-a.more { display: block; width: 75px; height: 25px; text-align: center; padding: 0px 15px 0 0; color: #fff; font-weight: normal; background: url(images/templatemo_button.png) }
+a.more { display: block; width: 75px; height: 25px; text-align: center; padding: 0px 15px 0 0; color: #fff; font-weight: normal; background: url(../images/templatemo_button.png) }
 a.more:hover { text-decoration: none; color: #faca39; }
 
 .float_l { float: left }
@@ -47,7 +47,7 @@ a.more:hover { text-decoration: none; color: #faca39; }
 
 
 .tmo_list { margin: 20px 0 20px 20px; padding: 0; list-style: none }
-.tmo_list li { color:#d7a202; margin: 0; padding: 0 0 0 15px; background: url(images/templatemo_list.png) no-repeat scroll 0 6px  }
+.tmo_list li { color:#d7a202; margin: 0; padding: 0 0 0 15px; background: url(../images/templatemo_list.png) no-repeat scroll 0 6px  }
 .tmo_list li a { color: #c89806; font-weight: normal }
 .tmo_list li a:hover { color: #d7a202 }
 
@@ -125,7 +125,7 @@ a.more:hover { text-decoration: none; color: #faca39; }
 	z-index: 999;
 	margin-top: 0px;
 	margin-bottom: 0px;
-	background-image: url("images/search.png");
+	background-image: url("../images/search.png");
 	
 	background-repeat: no-repeat;
 	border: none;
@@ -160,10 +160,10 @@ a.more:hover { text-decoration: none; color: #faca39; }
 	width: 960px;
 	height: 300px;
 	margin-bottom: 15px;
-	background:#EFEFEF url(images/slider_bottom.jpg) bottom no-repeat
+	background:#EFEFEF url(../images/slider_bottom.jpg) bottom no-repeat
 }
 
-#slider_wrapper_n { clear: both; width: 900px; padding: 30px; margin-bottom: 15px; background: #EFEFEF url(images/slider_bottom.jpg) no-repeat bottom } 
+#slider_wrapper_n { clear: both; width: 900px; padding: 30px; margin-bottom: 15px; background: #EFEFEF url(../images/slider_bottom.jpg) no-repeat bottom }
 #slider_wrapper_n h2 {
 	color: #fff;
 }
@@ -196,7 +196,7 @@ a.more:hover { text-decoration: none; color: #faca39; }
 	background-color: #ffffff;
 }
 
-.col_w900 { width: 900px; padding: 0 30px 70px 30px; margin-bottom: 0; background: url(images/content_divider.jpg) repeat-x bottom }
+.col_w900 { width: 900px; padding: 0 30px 70px 30px; margin-bottom: 0; background: url(../images/content_divider.jpg) repeat-x bottom }
 .col_w580 { width: 580px }
 .col_w420 { width: 420px }
 .col_w280 { width: 280px }

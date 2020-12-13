@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">  
     <title>${sessionScope.user.username}的交易记录</title>
+    <%@ include file="default/static/header.jsp"%>
+    <%-- <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="templatemo">
     
@@ -18,7 +19,7 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <![endif]-->--%>
 
   </head>
   <body>  
@@ -44,13 +45,21 @@
             <i class="fa fa-bars"></i>
           </div>
         <nav class="templatemo-left-nav">          
-          <ul><li><a href="main_index.jsp"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
-            <li><a href="car.html"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
-            <li><a href="myGoods.jsp" class="active"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
-            <li><a href="#"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
+          <ul>
+            <%--
+              <li><a href="main_index.jsp" class="active"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
+            <li><a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
+            <li><a href="tradehistory.html"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
+            <li><a href="goodServlet?action=list"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
             <li><a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
             <li><a href="index.jsp"><i class="fa fa-eject fa-fw"></i>退出系统</a></li>
-          </ul>  
+            --%>
+            <li><a href="main_index.jsp"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
+            <li><a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
+            <li><a href="tradehistory.jsp" class="active"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
+            <li><a href="goodServlet?action=list"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
+            <li><a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
+            <li> <a href="userServlet?action=logout"><i class="fa fa-eject fa-fw"></i>退出系统</a></li>          </ul>
         </nav>
       </div>
       <!-- Main content --> 
@@ -289,17 +298,14 @@
                 </a>
               </li>
             </ul>
-          </div>          
-          <footer class="text-right">
-            <p>Copyright &copy; 2084 Company Name 
-            | More Templates <a href="https://yihaowangluo.taobao.com/" target="_blank" title="天字一号网络">天字一号网络</a> - Collect from <a href="https://yihaowangluo.taobao.com/" title="网页模板" target="_blank">网页模板</a></p>
-          </footer>         
+          </div>
+        <%@ include file="/default/static/footer.jsp"%>
         </div>
       </div>
     </div>
     
     <!-- JS -->
-    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      <!-- jQuery -->
+  <%--  <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      <!-- jQuery -->
     <script type="text/javascript" src="js/templatemo-script.js"></script>      <!-- Templatemo Script -->
     <script>
       $(document).ready(function(){
@@ -308,6 +314,6 @@
         $('.templatemo-content-img-bg').css('background-image', 'url(' + imageUrl + ')');
         $('img.content-bg-img').hide();        
       });
-    </script>
+    </script>--%>
   </body>
 </html>

@@ -1,19 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">  
     <title>${sessionScope.user.username}的主页</title>
-    <base href="http://localhost:8080/SWU_Station/">
-    <meta name="description" content="">
-    <meta name="author" content="templatemo">
-    
-    <link href='http://fonts.useso.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/templatemo-style.css" rel="stylesheet">
-    
+    <%@ include file="default/static/header.jsp"%>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -47,11 +37,11 @@
         <nav class="templatemo-left-nav">
           <ul>
             <li><a href="main_index.jsp" class="active"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
-            <li><a href="car.html"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
-            <li><a href="tradehistory.html"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
+            <li><a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
+            <li><a href="tradehistory.jsp"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
             <li><a href="goodServlet?action=list"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
             <li><a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
-            <li><a href="index.jsp"><i class="fa fa-eject fa-fw"></i>退出系统</a></li>
+            <li> <a href="userServlet?action=logout"><i class="fa fa-eject fa-fw"></i>退出系统</a></li>
           </ul>
         </nav>
       </div>
@@ -61,7 +51,7 @@
           <div class="row">
             <nav class="templatemo-top-nav col-lg-12 col-md-12">
               <ul class="text-uppercase">
-                <li><a href="shop/index.html" style="text-align: center" class="active">商店</a></li>
+                <li><a href="shop_index.jsp" style="text-align: center" class="active">商店</a></li>
 
               </ul>
             </nav>
@@ -69,124 +59,62 @@
         </div>
         <div class="templatemo-content-container">
 
-          </div> <!-- Second row ends -->
-          <div class="templatemo-flex-row flex-content-row">
-            <div class="templatemo-content-widget white-bg col-2">
-              <i class="fa fa-times"></i>
-              <div class="square"></div>
-              <h2 class="templatemo-inline-block">Visual Admin Template</h2><hr>
-              <p>Works on all major browsers. IE 10+. Visual Admin is <a href="https://yihaowangluo.taobao.com/tag/admin" target="_parent">free responsive admin template</a> for everyone. Feel free to use this template for your backend user interfaces. Please tell your friends about <a href="http://www.templatemo.com" target="_parent">templatemo.com</a> website. You may <a href="https://yihaowangluo.taobao.com/contact" target="_parent">contact us</a> if you have anything to say.</p>
-              <p>Nunc placerat purus eu tincidunt consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus nulla quis risus auctor, non placerat augue consectetur. Fusce mi lacus, semper sit amet mattis eu.</p>
+        </div> <!-- Second row ends -->
+        <div class="templatemo-flex-row flex-content-row">
+          <div class="templatemo-content-widget white-bg col-2">
+            <i class="fa fa-times"></i>
+            <div class="square"></div>
+            <h2 class="templatemo-inline-block">Visual Admin Template</h2><hr>
+          </div>
+          <div class="templatemo-content-widget white-bg col-1 text-center">
+            <i class="fa fa-times"></i>
+            <h2 class="text-uppercase">Maris</h2>
+            <h3 class="text-uppercase margin-bottom-10">Design Project</h3>
+            <img src="images/bicycle.jpg" alt="Bicycle" class="img-circle img-thumbnail">
+          </div>
+          <div class="templatemo-content-widget white-bg col-1">
+            <i class="fa fa-times"></i>
+            <h2 class="text-uppercase">Dictum</h2>
+            <h3 class="text-uppercase">Sedvel Erat Non</h3><hr>
+            <div class="progress">
+              <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
             </div>
-            <div class="templatemo-content-widget white-bg col-1 text-center">
-              <i class="fa fa-times"></i>
-              <h2 class="text-uppercase">Maris</h2>
-              <h3 class="text-uppercase margin-bottom-10">Design Project</h3>
-              <img src="images/bicycle.jpg" alt="Bicycle" class="img-circle img-thumbnail">
+            <div class="progress">
+              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
             </div>
-            <div class="templatemo-content-widget white-bg col-1">
-              <i class="fa fa-times"></i>
-              <h2 class="text-uppercase">Dictum</h2>
-              <h3 class="text-uppercase">Sedvel Erat Non</h3><hr>
-              <div class="progress">
-                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-              </div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
-              </div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-              </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
             </div>
           </div>
-          <div class="copyrights">Collect from <a href="https://yihaowangluo.taobao.com/" >手机天字一号网络</a></div>
+        </div>
+
+        <div class="copyrights">Collect from <a href="https://yihaowangluo.taobao.com/" >手机天字一号网络</a></div>
           <div class="templatemo-flex-row flex-content-row templatemo-overflow-hidden"> <!-- overflow hidden for iPad mini landscape view-->
             <div class="col-1 templatemo-overflow-hidden">
               <div class="templatemo-content-widget white-bg templatemo-overflow-hidden">
                 <i class="fa fa-times"></i>
                 <div class="templatemo-flex-row flex-content-row">
+
                   <div class="col-1 col-lg-6 col-md-12">
                     <h2 class="text-center">Modular<span class="badge">new</span></h2>
                     <div id="pie_chart_div" class="templatemo-chart"></div> <!-- Pie chart div -->
                   </div>
+
                   <div class="col-1 col-lg-6 col-md-12">
                     <h2 class="text-center">Interactive<span class="badge">new</span></h2>
                     <div id="bar_chart_div" class="templatemo-chart"></div> <!-- Bar chart div -->
                   </div>
+
                 </div>
               </div>
             </div>
           </div>
-          <footer class="text-right">
-            <p>Copyright &copy; 2084 Company Name
-            | More Templates </p>
-          </footer>
+        <%@ include file="/default/static/footer.jsp"%>
+
         </div>
       </div>
     </div>
-    
-    <!-- JS -->
-    <script src="js/jquery-1.11.2.min.js"></script>      <!-- jQuery -->
-    <script src="js/jquery-migrate-1.2.1.min.js"></script> <!--  jQuery Migrate Plugin -->
-    <script src="https://www.google.com/jsapi"></script> <!-- Google Chart -->
-    <script>
-      /* Google Chart
-      -------------------------------------------------------------------*/
-      // Load the Visualization API and the piechart package.
-      google.load('visualization', '1.0', {'packages':['corechart']});
 
-      // Set a callback to run when the Google Visualization API is loaded.
-      google.setOnLoadCallback(drawChart); 
-      
-      // Callback that creates and populates a data table,
-      // instantiates the pie chart, passes in the data and
-      // draws it.
-      function drawChart() {
-
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn('string', 'Topping');
-          data.addColumn('number', 'Slices');
-          data.addRows([
-            ['Mushrooms', 3],
-            ['Onions', 1],
-            ['Olives', 1],
-            ['Zucchini', 1],
-            ['Pepperoni', 2]
-          ]);
-
-          // Set chart options
-          var options = {'title':'How Much Pizza I Ate Last Night'};
-
-          // Instantiate and draw our chart, passing in some options.
-          var pieChart = new google.visualization.PieChart(document.getElementById('pie_chart_div'));
-          pieChart.draw(data, options);
-
-          var barChart = new google.visualization.BarChart(document.getElementById('bar_chart_div'));
-          barChart.draw(data, options);
-      }
-
-      $(document).ready(function(){
-        if($.browser.mozilla) {
-          //refresh page on browser resize
-          // http://www.sitepoint.com/jquery-refresh-page-browser-resize/
-          $(window).bind('resize', function(e)
-          {
-            if (window.RT) clearTimeout(window.RT);
-            window.RT = setTimeout(function()
-            {
-              this.location.reload(false); /* false to get page from cache */
-            }, 200);
-          });      
-        } else {
-          $(window).resize(function(){
-            drawChart();
-          });  
-        }   
-      });
-      
-    </script>
-    <script type="text/javascript" src="js/templatemo-script.js"></script>      <!-- Templatemo Script -->
 
   </body>
 </html>

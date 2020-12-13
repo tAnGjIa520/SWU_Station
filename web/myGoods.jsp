@@ -2,20 +2,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">  
     <title>${sessionScope.user.username}的商品</title>
-    <meta name="description" content="">
-<!--    <meta name="author" content="templatemo">-->
-
-    <meta name="author" content="唐嘉">
-
-    <link href='http://fonts.useso.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="jqvmap/jqvmap.css" media="screen" rel="stylesheet" type="text/css" /> 
-    <link href="css/templatemo-style.css" rel="stylesheet">
+    <%@ include file="default/static/header.jsp"%>
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,12 +36,22 @@
             <i class="fa fa-bars"></i>
           </div>
         <nav class="templatemo-left-nav">
-          <ul><li><a href="main_index.jsp"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
-            <li><a href="car.html"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
-            <li><a href="myGoods.jsp"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
-            <li><a href="#" class="active"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
+          <ul>
+            <%--
+          <li><a href="main_index.jsp" class="active"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
+            <li><a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
+            <li><a href="tradehistory.jsp"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
+            <li><a href="goodServlet?action=list"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
             <li><a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
             <li><a href="index.jsp"><i class="fa fa-eject fa-fw"></i>退出系统</a></li>
+            --%>
+
+            <li><a href="main_index.jsp"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
+            <li><a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
+            <li><a href="tradehistory.jsp"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
+            <li><a href="goodServlet?action=list"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
+            <li><a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
+              <li> <a href="userServlet?action=logout"><i class="fa fa-eject fa-fw"></i>退出系统</a></li>
           </ul>
         </nav>
       </div>
@@ -175,7 +173,7 @@
                             </td>
                             <td width="35%" height="50px">
                                 <div class="row" style="text-align: center;">
-                                    <a href="">修改商品</a>
+                                    <a href="goodServlet?action=getGood&goodid=${good.id}">修改商品</a>
                                 </div>
                                 <%--                  提交按钮--%>
                              <%-- <div class="form-group text-right" style="float:left;">
@@ -200,9 +198,7 @@
           </div>
 
 
-          <footer class="text-right">
-              <p></p>
-          </footer>
+          <%@ include file="default/static/footer.jsp"%>>
         </div>
       </div>
     </div>

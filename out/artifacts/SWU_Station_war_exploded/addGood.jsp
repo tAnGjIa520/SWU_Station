@@ -2,18 +2,8 @@
 <%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ADDGood</title>
-    <meta name="description" content="">
-    <meta name="author" content="templatemo">
-    <base href="http://localhost:8080/SWU_Station/">
-
-    <link href='http://fonts.useso.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/templatemo-style.css" rel="stylesheet">
+    <%@ include file="default/static/header.jsp"%>
 
 </head>
 <body class="light-gray-bg">
@@ -55,8 +45,6 @@
     </form>
     <!--表单部分结束-->
 </div>
-<div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
-    <p>本产品专利归计信院唐嘉吴朝旭田浩所有</p>
-</div>
+<%@ include file="/default/static/footer.jsp"%>
 </body>
 </html>

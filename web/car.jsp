@@ -1,17 +1,8 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">  
-    <title>Visual Admin Dashboard - Data Visualization</title>
-    <meta name="description" content="">
-    <meta name="author" content="templatemo">
-    
-    <link href='http://fonts.useso.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/templatemo-style.css" rel="stylesheet">
+    <title>购物车</title>
+    <%@ include file="default/static/header.jsp"%>
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,20 +36,20 @@
           </div>
         <nav class="templatemo-left-nav">          
           <ul>
-            <!--<li><a href="main_index.jsp"><i class="fa fa-home fa-fw"></i>Dashboard</a></li>
-            <li><a href="#"><i class="fa fa-bar-chart fa-fw"></i>Charts</a></li>
-            <li><a href="#" class="active"><i class="fa fa-database fa-fw"></i>Data Visualization</a></li>
-            <li><a href="myGoods.jsp"><i class="fa fa-map-marker fa-fw"></i>Maps</a></li>
-            <li><a href="tradehistory.html"><i class="fa fa-users fa-fw"></i>Manage Users</a></li>
-            <li><a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>Preferences</a></li>
-            <li><a href="index.jsp"><i class="fa fa-eject fa-fw"></i>Sign Out</a></li>
-          -->
-            <li><a href="main_index.jsp"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
-            <li><a href="car.html" class="active" ><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
-            <li><a href="myGoods.jsp"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
-            <li><a href="#"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
+            <!--
+            <li><a href="main_index.jsp" class="active"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
+            <li><a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
+            <li><a href="tradehistory.jsp"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
+            <li><a href="goodServlet?action=list"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
             <li><a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
             <li><a href="index.jsp"><i class="fa fa-eject fa-fw"></i>退出系统</a></li>
+          -->
+            <li><a href="main_index.jsp"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
+            <li><a href="car.jsp" class="active" ><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
+            <li><a href="tradehistory.jsp"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
+            <li><a href="goodServlet?action=list"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
+            <li><a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
+            <li> <a href="userServlet?action=logout"><i class="fa fa-eject fa-fw"></i>退出系统</a></li>
           </ul>
         </nav>
       </div>
@@ -123,16 +114,13 @@
               </div> 
             </div>
           </div>
-          <footer class="text-right">
-            <p>Copyright &copy; 2084 Company Name 
-            | More Templates <a href="https://yihaowangluo.taobao.com/" target="_blank" title="天字一号网络">天字一号网络</a> - Collect from <a href="https://yihaowangluo.taobao.com/" title="网页模板" target="_blank">网页模板</a></p>
-          </footer>         
+          <%@ include file="/default/static/footer.jsp"%>
         </div>
       </div>
     </div>
     
     <!-- JS -->
-    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      <!-- jQuery -->
+   <%-- <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      <!-- jQuery -->
     <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script> <!--  jQuery Migrate Plugin -->
     <script type="text/javascript" src="https://www.google.com/jsapi"></script> <!-- Google Chart -->
     <script>
@@ -264,6 +252,6 @@
       }
 
     </script>
-    <script type="text/javascript" src="js/templatemo-script.js"></script>      <!-- Templatemo Script -->
+    <script type="text/javascript" src="js/templatemo-script.js"></script>      <!-- Templatemo Script -->--%>
   </body>
 </html>

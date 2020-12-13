@@ -1,25 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>${sessionScope.user.username}的设置</title>
-    <meta name="description" content="">
-    <meta name="author" content="templatemo">
-    <base href="http://localhost:8080/SWU_Station/">
-    
-    <link href='http://fonts.useso.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/templatemo-style.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+      <title>${sessionScope.user.username}的设置</title>
+      <%@ include file="default/static/header.jsp"%>
 
   </head>
   <body>
@@ -46,13 +29,13 @@
           </div>
         <nav class="templatemo-left-nav">
           <ul>
+
             <li><a href="main_index.jsp"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
-            <li><a href="car.html"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
-            <li><a href="myGoods.jsp"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
-            <li><a href="#"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
+            <li><a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
+            <li><a href="tradehistory.jsp"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
+            <li><a href="goodServlet?action=list"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
             <li><a href="person_setting.jsp" class="active"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
-            <li><a href="index.jsp"><i class="fa fa-eject fa-fw"></i>退出系统</a></li></ul>
-        </nav>
+              <li> <a href="userServlet?action=logout"><i class="fa fa-eject fa-fw"></i>退出系统</a></li>        </nav>
       </div>
       <!-- Main content -->
       <div class="templatemo-content col-1 light-gray-bg">
@@ -124,9 +107,7 @@
               </div>
             </form>
           </div>
-          <footer class="text-right">
-            <p>Copyright &copy; 唐嘉田浩吴朝旭
-          </footer>
+            <%@ include file="/default/static/footer.jsp"%>
         </div>
       </div>
     </div>
