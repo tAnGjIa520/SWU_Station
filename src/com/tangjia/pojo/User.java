@@ -28,11 +28,18 @@ public class User {
         this.password = password;
         this.email = email;
         this.id = id;
+        if(trade_number==null){
+            this.trade_number = 0;
+        }
         this.trade_number = trade_number;
     }
 
     public String getUsername() {
         return username;
+    }
+
+    public void setTrade_number(Integer trade_number) {
+        this.trade_number = trade_number;
     }
 
     public void setUsername(String username) {
@@ -63,7 +70,7 @@ public class User {
         this.id = id;
     }
 
-    public int getTrade_number() {
+    public Integer getTrade_number() {
         return trade_number;
     }
 

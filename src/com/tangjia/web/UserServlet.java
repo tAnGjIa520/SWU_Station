@@ -55,25 +55,38 @@ public class UserServlet extends BaseServlet {
         response.setContentType("text/html;charset=UTF-8");
 //        response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        User user = new User();
-        UserService userService = new UserServiceImpl();
-        try {
-            BeanUtils.populate(user,request.getParameterMap());
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-        User register = userService.register(user);
-        if (register==null){
-            System.out.println("已存在这个用户名的用户");
-            request.setAttribute("losetime",1);//0代表不存在这个用户
-            request.getRequestDispatcher("/register.jsp").forward(request,response);
-            return;
-        }
-        session.setAttribute("user" ,user);
 
-        request.getRequestDispatcher("/main_index.jsp").forward(request,response);
+        String kaptcha_session_key =(String) session.getAttribute("KAPTCHA_SESSION_KEY");
+        session.removeAttribute("KAPTCHA_SESSION_KEY");
+        String code = request.getParameter("code");
+        if (kaptcha_session_key!=null && kaptcha_session_key.equalsIgnoreCase(code)){
+            User user = new User();
+            UserService userService = new UserServiceImpl();
+            try {
+
+                BeanUtils.populate(user,request.getParameterMap());
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            }
+            User register = userService.register(user);
+            if (register==null){
+                System.out.println("已存在这个用户名的用户");
+                request.setAttribute("losetime",1);//0代表不存在这个用户
+                request.getRequestDispatcher("/register.jsp").forward(request,response);
+                return;
+            }
+            session.setAttribute("user" ,user);
+
+            request.getRequestDispatcher("/main_index.jsp").forward(request,response);
+        }else {
+            System.out.println("验证码错误！！！");
+            request.setAttribute("codeerror",1);
+            request.getRequestDispatcher("register.jsp").forward(request,response);
+        }
+
+
     }
 
     protected void set(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -23,4 +23,13 @@
         <servlet-name>GoodServlet</servlet-name>
         <url-pattern>/goodServlet</url-pattern>
     </servlet-mapping>
+    <!--验证码的servlet-->
+    <servlet>
+        <servlet-name>KaptchaServlet</servlet-name>
+        <servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>KaptchaServlet</servlet-name>
+        <url-pattern>/code.jpg</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -13,7 +13,8 @@
     </header>
     <!--表单部分吴朝旭完成-->
     <form action="userServlet" class="templatemo-login-form" method="post">
-        <input type="hidden" name="action" value="login">
+        <input type="hidden" name="action" value="register">
+        <input type="hidden" name="trade_number" value="0">
         <!--===用户名=============================-->
         <div class="form-group">
             <div class="input-group">
@@ -48,6 +49,19 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">验证码&nbsp&nbsp&nbsp</div>
+                <!--                <div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>-->
+                <input type="text" class="form-control" name="code">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group" style="text-align: center;">
+                <img src="code.jpg" >
+            </div>
+        </div>
+
         <!--================================-->
         <!--<div class="form-group">
             <div class="checkbox squaredTwo">
@@ -58,6 +72,10 @@
         <!--================================-->
         <div class="form-group">
             ${empty requestScope.losetime?"" :"已经存在这个用户"}
+        </div>
+
+        <div class="form-group">
+            ${empty requestScope.codeerror? "" :"验证码错误了！亲！"}
         </div>
 
         <div class="form-group">
