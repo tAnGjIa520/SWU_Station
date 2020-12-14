@@ -1,16 +1,22 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
   <head>
     <title>购物车</title>
     <%@ include file="default/static/header.jsp"%>
-    
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script type="text/javascript">
+      $(function () {
+        $("#clearCar").click(function () {
+            location.href="carServlet?action=clearCar";
+        })
+        $(".fa-times").click(function () {
+          location.href="carServlet?action=deleteItem";
+        })
 
+      })
+
+
+    </script>
   </head>
   <body>  
     <!-- Left column -->
@@ -18,7 +24,7 @@
       <div class="templatemo-sidebar">
         <header class="templatemo-site-header">
           <div class="square"></div>
-          <h1>Visual Admin</h1>
+          <h1>${sessionScope.user.username}的购物车</h1>
         </header>
         <div class="profile-photo-container">
           <img src="images/profile-photo.jpg" alt="Profile Photo" class="img-responsive">
@@ -53,72 +59,171 @@
           </ul>
         </nav>
       </div>
-      <!-- Main content --> 
+      <!-- Main content -->
+
+
       <div class="templatemo-content col-1 light-gray-bg">
-        <div class="templatemo-top-nav-container">
-          <div class="row">
-            <nav class="templatemo-top-nav col-lg-12 col-md-12">
-              <ul class="text-uppercase">
-                <li><a href="" class="active">商城</a></li>
-                <li><a href="">商城</a></li>
-                <li><a href="">商城</a></li>
-                <li><a href="index.jsp">商城</a></li>
-              </ul>  
-            </nav> 
-          </div>
-        </div>
-        <div class="templatemo-content-container">         
+        <%@include file="default/static/shop_bar.jsp"%>
+        <div class="templatemo-content-container">
           <div class="templatemo-content-widget white-bg">
-            <h2 class="margin-bottom-10">购物车</h2>
-            <p>Credit goes to <a href="https://google-developers.appspot.com/chart/" target="_parent">Google Charts</a></p>
-            <div class="panel panel-default no-border">
-              <div class="panel-heading border-radius-10">
-                <h2>Gauge</h2>
-              </div>
-              <div class="panel-body">
-                <div class="templatemo-flex-row flex-content-row margin-bottom-30">
-                  <div class="col-1">
-                    <div id="gauge_div" class="templatemo-chart"></div>
-                    <h3 class="text-center margin-bottom-5">Computer Resources</h3>
-                    <p class="text-center">Curabitur</p>              
-                  </div>              
-                </div>     
-              </div>
-            </div>            
-            <div class="panel panel-default no-border">
-              <div class="panel-heading border-radius-10">
-                <h2>Timeline</h2>
-              </div>
-              <div class="panel-body">
-                <div class="templatemo-flex-row flex-content-row">
-                  <div class="col-1">
-                    <div id="timeline_div" class="templatemo-chart"></div>
-                    <h3 class="text-center margin-bottom-5">Conference Schedule</h3>
-                    <p class="text-center">Lorem Ipsum</p>                
-                  </div>              
+
+              <h2 class="margin-bottom-10">${sessionScope.user.username}的购物车</h2>
+
+            <c:if test="${ empty sessionScope.car || sessionScope.car.totalCount==0}">
+              <div class="panel panel-default no-border">
+                <div class="panel-body">
+                  <div class="templatemo-flex-row flex-content-row">
+                    <div class="col-1">
+                      <div  style="height: 100px"></div>
+                      <h3 class="text-center margin-bottom-5">  购物车空空如也</h3>
+                      <a href="goodServlet?action=listAll"><p class="text-center">点我前往商城</p></a>
+                    </div>
+                  </div>
                 </div>
-              </div> 
-            </div>
-            <div class="panel panel-default no-border">
-              <div class="panel-heading border-radius-10">
-                <h2>Area Chart</h2>
+
               </div>
-              <div class="panel-body">
-                <div class="templatemo-flex-row flex-content-row">
-                  <div class="col-1">
-                    <div id="area_chart_div" class="templatemo-chart"></div>
-                    <h3 class="text-center margin-bottom-5">Company Performance</h3>
-                    <p class="text-center">Fusce mi lacus</p>                
-                  </div>              
+            </c:if>
+            <c:if test="${not (empty sessionScope.car || sessionScope.car.totalCount==0)}">
+              <div class="panel panel-default no-border">
+                <div class="panel-body">
+                  <div class="templatemo-flex-row flex-content-row">
+                    <div class="col-1">
+                      <div  style="height: 0px"></div>
+                      <h3 class="text-center margin-bottom-5">购物车中共有${sessionScope.car.totalCount}件商品，总价${sessionScope.car.totalPrice}软妹币</h3>
+                        <%--  <a href="goodServlet?action=listAll"><p class="text-center">点我前往商城</p></a>--%>
+                      <i class="fa fa-times" id="clearCar" style="float: bottom">清空购物车</i>
+                    </div>
+                  </div>
                 </div>
-              </div> 
+
+              </div>
+            </c:if>
+
+
+            <%--========================================================================================--%>
+
+<c:forEach var="carItem" items="${sessionScope.car.itemsMap}" varStatus="status">
+            <div class="templatemo-flex-row flex-content-row">
+
+
+
+
+              <div class="col-1">
+                <div class="panel panel-default margin-10" style="height:600px;width: auto" >
+                  <%--<div class="panel-heading"><h2>商品<1></h2>
+
+
+                  </div>--%>
+                    <div class="templatemo-content-widget white-bg col-2" style="height: 500px;width: 1000px" >
+                      <i class="fa fa-times"></i>
+                      <div class="square"></div>
+                      <h2 class="templatemo-inline-block">商品<====${status.index+1}====></h2><hr>
+                      <%--=================22222222222222222222222222222222222222222222222222222222222222--%>
+
+
+                      <div class="panel-body">
+                        <div id="vmap_africa" class="vmap">
+
+                          <table border="1" style="border: none;margin: auto; width:900px; height:200px">
+                            <tr>
+                              <td rowspan="5" height="200px" width="150px">
+                                图片
+                              </td>
+                              <td width="35%" >
+                                  <%--=================================商品id==========================================--%>
+                                <div class="row form-group">
+                                  <div class="col-lg-6 col-md-6 form-group">
+                                    <label  >商品id</label>
+                                    <input type="text" disabled="disabled" class="form-control" disabled="disabled  "  placeholder="${carItem.key}" name="itemId">
+                                  </div>
+                                </div>
+
+
+                              </td>
+
+                            </tr>
+                            <tr>
+                                <%--=================================商品名==========================================--%>
+
+                              <td width="35%" >
+                                <div class="row form-group">
+                                  <div class="col-lg-6 col-md-6 form-group">
+                                    <label>商品名</label>
+                                    <input type="text" disabled="disabled" class="form-control"  placeholder="${carItem.value.itemName}" name="itemName">
+                                  </div>
+                                </div>
+                              </td>
+                                <%--=================================出售时间==========================================--%>
+
+                            </tr>
+                              <%--=================================价格==========================================--%>
+
+                            <tr>
+                              <td width="35%" >
+                                <div class="row form-group">
+                                  <div class="col-lg-6 col-md-6 form-group">
+                                    <label>单价</label>
+                                    <input type="text" disabled="disabled" class="form-control"  placeholder="${carItem.value.itemPrice}" name="itemPrice">
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                              <%--                          增加的一行--%>
+                            <tr>
+                              <td width="35%" >
+                                <div class="row form-group">
+                                  <div class="col-lg-6 col-md-6 form-group">
+                                    <label>数量</label>
+                                    <input type="text" disabled="disabled" class="form-control"  placeholder="${carItem.value.totalItemCount}" name="itemCount">
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+
+
+                              <%--总价--%>
+                            <tr>
+                              <td width="35%">
+                                <div class="row form-group">
+                                  <div class="col-lg-6 col-md-6 form-group">
+                                    <label>总价</label>
+                                    <input type="text" disabled="disabled" class="form-control"  placeholder="${carItem.value.totalItemPrice}" name="totalItemPrice">
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </table>
+
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                  <%--==============--%>
+                    </div>
+                <%--<i class="fa fa-times"  style="float: bottom">商品</i>--%>
+
+
+
+              </div>
             </div>
+
+
+
+</c:forEach>
+
+
+
+
+
+          </div>
           </div>
           <%@ include file="/default/static/footer.jsp"%>
         </div>
       </div>
     </div>
-    
+
     <!-- JS -->
    <%-- <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      <!-- jQuery -->
     <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script> <!--  jQuery Migrate Plugin -->
@@ -135,7 +240,7 @@
       var areaOptions;
       var areaChart;
 
-      /* Gauage 
+      /* Gauage
       --------------------------------------------------*/
       google.load("visualization", "1", {packages:["gauge"]});
       google.setOnLoadCallback(drawGauge);
@@ -155,12 +260,12 @@
             {
               this.location.reload(false); /* false to get page from cache */
             }, 200);
-          });      
+          });
         } else {
           $(window).resize(function(){
             drawCharts();
-          });  
-        }   
+          });
+        }
       });
 
       function drawGauge() {
@@ -192,7 +297,7 @@
         setInterval(function() {
           gaugeData.setValue(2, 1, 60 + Math.round(20 * Math.random()));
           gaugeChart.draw(gaugeData, gaugeOptions);
-        }, 26000);        
+        }, 26000);
       } // End function drawGauage
 
       /* Timeline
@@ -224,7 +329,7 @@
         timelineChart.draw(timelineDataTable, timelineOptions);
       } // End function drawTimeline
 
-      /* Area Chart 
+      /* Area Chart
       --------------------------------------------------*/
       function drawChart() {
         areaData = google.visualization.arrayToDataTable([

@@ -32,4 +32,15 @@
         <servlet-name>KaptchaServlet</servlet-name>
         <url-pattern>/code.jpg</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CarServlet</servlet-name>
+        <servlet-class>com.tangjia.web.CarServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CarServlet</servlet-name>
+        <url-pattern>/carServlet</url-pattern>
+    </servlet-mapping>
+    
+    
 </web-app>

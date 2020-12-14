@@ -4,6 +4,7 @@
 <head>
     <title>西大微店注册</title>
     <%@ include file="default/static/header.jsp"%>
+
 </head>
 <body class="light-gray-bg">
 <div class="templatemo-content-widget templatemo-login-widget white-bg">
@@ -58,7 +59,7 @@
         </div>
         <div class="form-group">
             <div class="input-group" style="text-align: center;">
-                <img src="code.jpg" >
+                <img src="code.jpg" id="codeimg">
             </div>
         </div>
 
@@ -86,4 +87,22 @@
 </div>
 <%@ include file="/default/static/footer.jsp"%>
 </body>
+<script type="text/javascript">
+
+
+   /* var codeimg = document.getElementById(codeimg);
+    codeimg.onclick=function () {
+        window.alert("nihao");
+    }*/
+     $(function(){
+
+
+
+         $("#codeimg").click(function () {
+     /*        alert("刷新验证码");*/
+             this.src="code.jpg?d="+new Date();
+         });
+
+     });
+</script>
 </html>

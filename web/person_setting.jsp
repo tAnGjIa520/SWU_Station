@@ -39,18 +39,10 @@
       </div>
       <!-- Main content -->
       <div class="templatemo-content col-1 light-gray-bg">
-        <div class="templatemo-top-nav-container">
-          <div class="row">
-            <nav class="templatemo-top-nav col-lg-12 col-md-12">
-              <ul class="text-uppercase">
-                <li><a href="" class="active">商城</a></li>
-                <li><a href="">商城</a></li>
-                <li><a href="">商城</a></li>
-                <li><a href="index.jsp">商城</a></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+
+
+          <%@include file="default/static/shop_bar.jsp"%>
+
         <div class="templatemo-content-container">
           <div class="templatemo-content-widget white-bg">
             <h2 class="margin-bottom-10">个人设置</h2>

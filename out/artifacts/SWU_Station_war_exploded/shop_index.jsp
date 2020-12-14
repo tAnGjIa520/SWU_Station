@@ -5,6 +5,18 @@
     <title>欢迎来到西大微店！！</title>
     <%@ include file="default/static/header.jsp"%>
 </head>
+<script type="text/javascript">
+    $(function () {
+
+        $("button.templatemo-blue-button").click(function () {
+            var goodId= $(this).attr("goodId");
+            location.href="carServlet?action=addItem&goodId="+goodId;
+        })
+
+
+    })
+
+</script>
 <body>
     <!-- Main content -->
     <div class="templatemo-content col-1 light-gray-bg">
@@ -56,7 +68,7 @@
     <%--上面的那一横条（结束）--%>
         <div style="width: 80%;text-align: center;margin: 0px auto;" >
    <%--         <div class="templatemo-content-container">
-                                阿达达
+
 
 
             </div> <!-- Second row ends -->--%>
@@ -87,50 +99,75 @@
 <%--上面那一块--%>
 <%--下面那一块--%>
 
-            <div class="templatemo-flex-row flex-content-row">
-                <div class="templatemo-content-widget white-bg col-2">
 
-                    <div class="square"></div>
-                    <h2 class="templatemo-inline-block">商品1</h2><hr>
+       <div class="templatemo-flex-row flex-content-row" style="white-space:normal;">
+           <c:forEach var="good" begin="0" end="2" items="${requestScope.allGood}">
 
-                    <img src="images/bicycle.jpg" style="float: left;" alt="Bicycle">
+               <div class="templatemo-content-widget white-bg col-2">
 
-                    <a href="login_success.jsp">
-                        <button  class="templatemo-blue-button width-100" style="margin-top: 20px">加入购物车！</button>
-                    </a>
+                   <div class="square"></div>
+                   <h2 class="templatemo-inline-block">商品</h2><hr>
 
-                </div>
-<%--=============================--%>
-                <div class="templatemo-content-widget white-bg col-2">
+                       <img src="images/bicycle.jpg" style="float: left;" alt="Bicycle"><br>
+                       <div  style="text-align: left;">商品id： ${good.id}<br>
+                           商品名:${good.goodname}<br>
+                           商品描述：${good.description}<br>
+                           商品价格:${good.price}￥<br>
+                       </div>
 
-                    <div class="square"></div>
-                    <h2 class="templatemo-inline-block">商品1</h2><hr>
+                   <button goodId="${good.id}"  class="templatemo-blue-button width-100" style="margin-top: 20px">加入购物车！</button>
 
-                    <img src="images/bicycle.jpg" style="float: left;" alt="Bicycle">
 
-                    <a href="login_success.jsp">
-                        <button  class="templatemo-blue-button width-100" style="margin-top: 20px">加入购物车！</button>
-                    </a>
+               </div>
 
-                </div>
-                <%--=================================--%>
+           </c:forEach>
+       </div>
 
-                <div class="templatemo-content-widget white-bg col-2">
+       <div class="templatemo-flex-row flex-content-row" style="white-space:normal;">
+           <c:forEach var="good" begin="3" end="5" items="${requestScope.allGood}">
 
-                    <div class="square"></div>
-                    <h2 class="templatemo-inline-block">商品1</h2><hr>
+               <div class="templatemo-content-widget white-bg col-2">
 
-                    <img src="images/bicycle.jpg" style="float: left;" alt="Bicycle">
+                   <div class="square"></div>
+                   <h2 class="templatemo-inline-block">商品</h2><hr>
 
-                    <a href="login_success.jsp">
-                        <button  class="templatemo-blue-button width-100" style="margin-top: 20px">加入购物车！</button>
-                    </a>
+                   <img src="images/bicycle.jpg" style="float: left;" alt="Bicycle"><br>
+                   <div  style="text-align: left;">商品id： ${good.id}<br>
+                       商品名:${good.goodname}<br>
+                       商品描述：${good.description}<br>
+                       商品价格:${good.price}￥<br>
+                   </div>
+                   <button goodId="${good.id}"  class="templatemo-blue-button width-100" style="margin-top: 20px">加入购物车！</button>
 
-                </div>
+               </div>
+
+           </c:forEach>
+       </div>
+
+       <div class="templatemo-flex-row flex-content-row" style="white-space:normal;">
+           <c:forEach var="good" begin="6" end="8" items="${requestScope.allGood}">
+
+               <div class="templatemo-content-widget white-bg col-2">
+
+                   <div class="square"></div>
+                   <h2 class="templatemo-inline-block">商品</h2><hr>
+
+                   <img src="images/bicycle.jpg" style="float: left;" alt="Bicycle"><br>
+                   <div  style="text-align: left;">商品id： ${good.id}<br>
+                       商品名:${good.goodname}<br>
+                       商品描述：${good.description}<br>
+                       商品价格:${good.price}￥<br>
+                   </div>
+                   <button goodId="${good.id}"  class="templatemo-blue-button width-100" style="margin-top: 20px">加入购物车！</button>
+               </div>
+
+           </c:forEach>
+       </div>
             <%--================================--%>
-            </div>
+
        </div>
     <%@ include file="/default/static/footer.jsp"%>
     </div>
 </body>
+
 </html>

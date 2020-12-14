@@ -49,7 +49,7 @@
             <li><a href="main_index.jsp"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
             <li><a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
             <li><a href="tradehistory.jsp"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
-            <li><a href="goodServlet?action=list"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
+            <li><a href="goodServlet?action=list" class="active"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
             <li><a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
               <li> <a href="userServlet?action=logout"><i class="fa fa-eject fa-fw"></i>退出系统</a></li>
           </ul>
@@ -58,6 +58,8 @@
       <!-- Main content --> 
       <div class="templatemo-content col-1 light-gray-bg">
 
+
+        <%@include file="default/static/shop_bar.jsp"%>
         <div class="templatemo-content-container">
           <div class="templatemo-content-widget white-bg" style="height: 80px">
             <div style="float: left;"><h2 class="margin-bottom-10">商品列表</h2></div>
@@ -67,8 +69,7 @@
                       <ul class="text-uppercase">
 
                     <li><a href="addGood.jsp" class="active">我要增加商品</a></li>
-                   <%-- <li><a href="">商城</a></li>
-                    <li><a href="index.jsp">商城</a></li>--%>
+
                   </ul>
                 </nav>
               </div>

@@ -14,9 +14,11 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
-import java.util.List;
+import java.util.*;
 
 public class GoodServlet extends BaseServlet {
+
+    public static final int RANDOM_SIZE=6;
 
     private GoodService goodService=new GoodServiceImpl();
 
@@ -29,6 +31,30 @@ public class GoodServlet extends BaseServlet {
 
     }
 
+    protected void listAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        List<Good> list = goodService.querryAllGood();
+
+        Random random = new Random();
+        List<Good> newlist = new ArrayList<>();
+        int i=0;
+        int number;
+
+        while (i<RANDOM_SIZE){
+            number=random.nextInt(list.size());
+            Good good = list.get(number);
+
+            newlist.add(list.get(number));
+            i++;
+        }
+
+        request.setAttribute("allGood",list);
+
+
+
+        /*response.sendRedirect(request.getContextPath()+"/shop_index.jsp");*/
+        request.getRequestDispatcher("shop_index.jsp").forward(request,response);
+
+    }
 
     protected void updateGood(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");

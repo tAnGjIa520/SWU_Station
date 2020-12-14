@@ -47,16 +47,9 @@
       </div>
       <!-- Main content --> 
       <div class="templatemo-content col-1 light-gray-bg">
-        <div class="templatemo-top-nav-container">
-          <div class="row">
-            <nav class="templatemo-top-nav col-lg-12 col-md-12">
-              <ul class="text-uppercase">
-                <li><a href="shop_index.jsp" style="text-align: center" class="active">商店</a></li>
 
-              </ul>
-            </nav>
-          </div>
-        </div>
+        <%@include file="default/static/shop_bar.jsp"%>
+
         <div class="templatemo-content-container">
 
         </div> <!-- Second row ends -->

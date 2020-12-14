@@ -13,6 +13,7 @@
 <base href="http://localhost:8080/SWU_Station/">
 <meta name="description" content="">
 <meta name="author" content="templatemo">
+<script type="text/javascript" src="js/jquery.js"></script>
 
 <%--
 <link href='http://fonts.useso.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
