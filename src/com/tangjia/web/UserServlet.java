@@ -31,8 +31,19 @@ public class UserServlet extends BaseServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
-        UserServiceImpl userService = new UserServiceImpl();
         HttpSession session = request.getSession();
+
+         String code = (String)session.getAttribute("code");
+
+        String code1 = request.getParameter("code");
+        System.out.println(code);
+        System.out.println(code1);
+        System.out.println("===========");
+   /*
+        if (code.equalsIgnoreCase(code1) && code1!=null){
+       }*/
+
+        UserServiceImpl userService = new UserServiceImpl();
 
         User user=userService.login(request.getParameter("username"),request.getParameter("password"));
         if (user==null){
@@ -46,7 +57,6 @@ public class UserServlet extends BaseServlet {
             request.getRequestDispatcher("/main_index.jsp").forward(request,response);
         }
         System.out.println("============================");
-
 
     }
 

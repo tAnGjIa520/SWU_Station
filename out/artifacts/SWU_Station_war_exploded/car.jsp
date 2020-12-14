@@ -9,10 +9,10 @@
         $("#clearCar").click(function () {
             location.href="carServlet?action=clearCar";
         })
-        $(".fa-times").click(function () {
+       /* $(".fa-times").click(function () {
           location.href="carServlet?action=deleteItem";
         })
-
+*/
       })
 
 

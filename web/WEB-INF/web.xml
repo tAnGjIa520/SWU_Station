@@ -41,6 +41,13 @@
         <servlet-name>CarServlet</servlet-name>
         <url-pattern>/carServlet</url-pattern>
     </servlet-mapping>
-    
-    
+    <!--wuchaoxu ======================au-->
+    <servlet>
+        <servlet-name>AuthServlet</servlet-name>
+        <servlet-class>com.tangjia.web.AuthServlet</servlet-class>
+    </servlet>
+<servlet-mapping>
+    <servlet-name>AuthServlet</servlet-name>
+    <url-pattern>/authServlet</url-pattern>
+</servlet-mapping>
 </web-app>

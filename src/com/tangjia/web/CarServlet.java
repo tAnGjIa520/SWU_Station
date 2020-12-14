@@ -50,7 +50,9 @@ public class CarServlet extends BaseServlet{
         HttpSession session = request.getSession();
         Car car = (Car)session.getAttribute("car");
         car.clearItems();
+        System.out.println(request.getHeader("Referer"));
         response.sendRedirect(request.getHeader("Referer"));
+
 
     }
     protected void deleteItem(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

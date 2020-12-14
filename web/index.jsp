@@ -3,7 +3,22 @@
 	<head>
 		<title>登陆界面</title>
 		<%@ include file="default/static/header.jsp"%>
+	<script type="text/javascript">
+		$(function () {
+			$("#codeimg").click(function () {
 
+				this.src="authServlet?apple="+new Date();
+				/*alert("123")
+*/
+			})
+
+
+
+
+		})
+
+
+	</script>
 	</head>
 	<body class="light-gray-bg">
 		<div class="templatemo-content-widget templatemo-login-widget white-bg">
@@ -18,16 +33,26 @@
 				<div class="form-group">
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
-		              <input type="text" class="form-control" name="username">
+		              <input type="text" class="form-control" placeholder="用户名" name="username">
 		          	</div>	
 	        	</div>
 	        	<!--================================-->
 	        	<div class="form-group">
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>	        		
-		              	<input type="password" class="form-control" name="password" >
+		              	<input type="password"placeholder="密码" class="form-control" name="password" >
 		          	</div>	
-	        	</div>	        
+	        	</div>
+
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>
+						<input type="text" placeholder="验证码" class="form-control" name="code" >
+					</div>
+				</div>
+
+
+				<img id="codeimg" src="authServlet" style="margin: auto;text-align: center">
 	        	<!--======记住我==========================-->
 	         <!-- 	<div class="form-group">
 				    <div class="checkbox squaredTwo">
