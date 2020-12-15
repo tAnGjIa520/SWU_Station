@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	
+	<servlet>
+		<servlet-name>MyServlet</servlet-name>	<!-- Servlet注册的名字(随意取) -->
+		<servlet-class>test.AuthImage</servlet-class>	<!-- Servlet的全类名 -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyServlet</servlet-name>	<!-- 与<servlet-name>名一致 -->
+		<url-pattern>/imageCode</url-pattern>	<!-- 映射具体的访问路径 -->
+		<!-- 注：/代表当前web应用的根目录即本例代表"D:\java\tomcat\webapps\my\" -->
+	</servlet-mapping>
+</web-app>
