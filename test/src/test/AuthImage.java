@@ -42,11 +42,13 @@ public class AuthImage extends HttpServlet {
         Random r = new Random();
         g.setColor(new Color(r.nextInt(255), r.nextInt(255), r.nextInt(255)));
         g.setFont(new Font("微软雅黑", Font.BOLD | Font.ITALIC, 24));
-        String secrect = getString(r, 5);
-        //System.out.println("number:" + number);
-
-
-        g.drawString(secrect, 1, 25);// 此处的1和25是左下角的坐标
+        String secrect = "";
+        for(int i=0;i<4;i++) {
+        	secrect = getString(r, 1);
+        	g.setColor(new Color(r.nextInt(255), r.nextInt(255), r.nextInt(255)));
+            g.drawString(secrect, 1+i*18, 25);// 此处的1和25是左下角的坐标
+        }
+        
 
         for (int i = 0; i < 8; i++) {
             g.setColor(new Color(r.nextInt(255), r.nextInt(255), r.nextInt(255)));
@@ -62,9 +64,7 @@ public class AuthImage extends HttpServlet {
     private String getString(Random r, int size) {
         StringBuilder sb = new StringBuilder();
         String chars = "0123456789abcdefghijklmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ";
-        for (int i = 0; i < size; i++) {
-            sb.append(chars.charAt(r.nextInt(chars.length())));
-        }
+        sb.append(chars.charAt(r.nextInt(chars.length())));
         return sb.toString();
     }
 
