@@ -46,8 +46,16 @@
         <servlet-name>AuthServlet</servlet-name>
         <servlet-class>com.tangjia.web.AuthServlet</servlet-class>
     </servlet>
-<servlet-mapping>
+    <servlet>
+        <servlet-name>OrderItemServlet</servlet-name>
+        <servlet-class>com.tangjia.web.OrderItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
     <servlet-name>AuthServlet</servlet-name>
     <url-pattern>/authServlet</url-pattern>
 </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderItemServlet</servlet-name>
+        <url-pattern>/orderItemServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

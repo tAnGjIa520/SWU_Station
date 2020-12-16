@@ -32,7 +32,8 @@
 
             <li><a href="main_index.jsp"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
             <li><a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
-            <li><a href="tradehistory.jsp"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
+              <li><a href="orderItemServlet?action=showOrderForSaler" class="active"><i class="fa fa-map-marker fa-fw"></i>出售记录</a></li>
+              <li><a href="orderItemServlet?action=showOrderForUser"><i class="fa fa-map-marker fa-fw"></i>购买记录</a></li>
             <li><a href="goodServlet?action=list"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
             <li><a href="person_setting.jsp" class="active"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
               <li> <a href="userServlet?action=logout"><i class="fa fa-eject fa-fw"></i>退出系统</a></li>        </nav>
@@ -50,16 +51,6 @@
 <!--            //design point:如果发现有人的信息没有填好的那么就显示请完善您的个人信息-->
             <form action="UserServlet" class="templatemo-login-form" method="post">
                 <input type="hidden" name="action" value="set">
-           <%--   <div class="row form-group">
-              <!--  <div class="col-lg-6 col-md-6 form-group">
-                    <label for="inputFirstName">First Name</label>
-                    <input type="text" class="form-control" id="inputFirstName" placeholder="默认的username">
-                </div>
-                <div class="col-lg-6 col-md-6 form-group">                  
-                    <label for="inputLastName">Last Name</label>
-                    <input type="text" class="form-control" id="inputLastName" placeholder="Smith">                  
-                </div> -->
-              </div>--%>
 
 <!--              用户名-->
               <div class="row form-group">

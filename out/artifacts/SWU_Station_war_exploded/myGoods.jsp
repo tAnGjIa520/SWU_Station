@@ -48,7 +48,8 @@
 
             <li><a href="main_index.jsp"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
             <li><a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
-            <li><a href="tradehistory.jsp"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
+              <li><a href="orderItemServlet?action=showOrderForSaler" class="active"><i class="fa fa-map-marker fa-fw"></i>出售记录</a></li>
+              <li><a href="orderItemServlet?action=showOrderForUser"><i class="fa fa-map-marker fa-fw"></i>购买记录</a></li>
             <li><a href="goodServlet?action=list" class="active"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
             <li><a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
               <li> <a href="userServlet?action=logout"><i class="fa fa-eject fa-fw"></i>退出系统</a></li>

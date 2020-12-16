@@ -55,7 +55,21 @@ public class CarServlet extends BaseServlet{
 
 
     }
+
     protected void deleteItem(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            
+        HttpSession session = request.getSession();
+        Car car = (Car)session.getAttribute("car");
+        car.deleteItem(Integer.parseInt(request.getParameter("itemId")));
+/*        System.out.println(request.getHeader("Referer"));*/
+        response.sendRedirect(request.getHeader("Referer"));
+
     }
+
+    protected void setItem(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        HttpSession session = request.getSession();
+        Car car =(Car) session.getAttribute("car");
+        car.setItemCount(Integer.parseInt(request.getParameter("goodId")),Integer.parseInt(request.getParameter("newCount")));
+        response.sendRedirect(request.getHeader("Referer"));
+    }
+
 }

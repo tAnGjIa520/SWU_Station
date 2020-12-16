@@ -7,20 +7,35 @@
 </head>
 <script type="text/javascript">
     $(function () {
-
+/*        scrollTo(0,100);*/
         $("button.templatemo-blue-button").click(function () {
             var goodId= $(this).attr("goodId");
             location.href="carServlet?action=addItem&goodId="+goodId;
+
         })
-
-
     })
 
 </script>
+
+<style type="text/css">
+    .set{
+        text-align: center;
+        color: white;
+        float:right;
+      /*  margin-bottom: 10px;*/
+        height: auto;
+        width: 30px;
+        background-color: #329AA1;
+        border-radius:15px;
+    }
+</style>
 <body>
     <!-- Main content -->
     <div class="templatemo-content col-1 light-gray-bg">
 <%--上面的那一横条--%>
+
+
+
         <div class="templatemo-top-nav-container"style="background-color:  #1F2124;height: 70px;" >
 
             <div class="templatemo-site-header" style="margin: auto">
@@ -40,17 +55,24 @@
                                         您好！！${sessionScope.user.username}
                                     </h1>
                                 </div>
-                                <div class="templatemo-site-header" style="float:right;margin: auto">
+                                <div class="templatemo-site-header" style="float:right;margin: auto;">
                                     <h1 style="float:right;font-size: 80%">
                                         <a href="main_index.jsp"><i class="fa fa-home fa-fw"></i>我的主页</a>
-                                        <a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车</a>
                                         <a href="tradehistory.jsp"><i class="fa fa-map-marker fa-fw"></i>交易记录</a>
+<a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车
+                                    <c:if test="${not (sessionScope.car.totalCount==0 || empty sessionScope.car)}">
+                                        <div  class="set" >${sessionScope.car.totalCount}</div>
+                                    </c:if>
+
+
+</a>
+
                                     </h1>
-                                        <h1 style="float:right;font-size: 80%">
-                                            <a href="goodServlet?action=list"><i class="fa fa-users fa-fw"></i>我的商品</a>
-                                            <a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a>
-                                            <a href="userServlet?action=logout"><i class="fa fa-eject fa-fw"></i>退出系统</a>
-                                        </h1>
+                                    <h1 style="float:right;font-size: 80%">
+                                        <a href="goodServlet?action=list"><i class="fa fa-users fa-fw"></i>我的商品</a>
+                                        <a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a>
+                                        <a href="userServlet?action=logout"><i class="fa fa-eject fa-fw"></i>退出系统</a>
+                                    </h1>
                                 </div>
 
                             </c:if>

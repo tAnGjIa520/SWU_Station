@@ -4,18 +4,18 @@
   <head>
     <title>${sessionScope.user.username}的交易记录</title>
     <%@ include file="default/static/header.jsp"%>
-      <script type="text/javascript">
-          $(function () {
-              $(".send").click(function () {
-                  location.href = "orderItemServlet?action=sendOrder&orderId=" + $(this).attr("orderId");
-              /*            alert("orderItemServlet?action=sendOrder?orderId=" + $(this).attr("orderId"));*/
-              })
-
-
-
+    <script type="text/javascript">
+      $(function () {
+          $(".finish").click(function () {
+            location.href = "orderItemServlet?action=receiveOrder&orderId=" + $(this).attr("orderId");
+    /*        alert("orderItemServlet?action=receiveOrder?orderId=" + $(this).attr("orderId"));*/
           })
 
-      </script>
+
+
+      })
+
+    </script>
   </head>
   <body>  
     <!-- Left column -->
@@ -41,11 +41,10 @@
           </div>
         <nav class="templatemo-left-nav">          
           <ul>
-
             <li><a href="main_index.jsp"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
             <li><a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
-            <li><a href="orderItemServlet?action=showOrderForSaler" class="active"><i class="fa fa-map-marker fa-fw"></i>出售记录</a></li>
-            <li><a href="orderItemServlet?action=showOrderForUser"><i class="fa fa-map-marker fa-fw"></i>购买记录</a></li>
+              <li><a href="orderItemServlet?action=showOrderForSaler"><i class="fa fa-map-marker fa-fw"></i>出售记录</a></li>
+              <li><a href="orderItemServlet?action=showOrderForUser" class="active"><i class="fa fa-map-marker fa-fw"></i>购买记录</a></li>
             <li><a href="goodServlet?action=list"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
             <li><a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
             <li> <a href="userServlet?action=logout"><i class="fa fa-eject fa-fw"></i>退出系统</a></li>          </ul>
@@ -59,7 +58,6 @@
           <div class="templatemo-content-widget no-padding">
             <div class="panel panel-default table-responsive">
               <table class="table table-striped table-bordered templatemo-user-table">
-
                 <thead>
                   <tr>
                     <td>序号</td>
@@ -70,40 +68,38 @@
                     <td>商品数量</td>
                     <td>商品单价</td>
                     <td>交易状态</td>
-                    <td>已发货超链接</td>
+                    <td>动作</td>
                   </tr>
+
                 </thead>
-               <tbody>
-                <c:forEach var="salerInfo" items="${requestScope.salerInfoList}" varStatus="status" >
-                         <tr>
-                        <td>${status.index+1}</td>
-                        <td>${salerInfo.orderId}</td>
-                        <td>${salerInfo.userId}</td>
-                        <td>${salerInfo.salerId}</td>
-                        <td>${salerInfo.goodName}</td>
-                        <td>${salerInfo.totalCount}</td>
-                        <td>${salerInfo.price}</td>
+                <c:forEach var="userInfo" items="${requestScope.userInfoList}" varStatus="status" >
+                  <tr>
+                    <td>${status.index+1}111</td>
+                    <td>${userInfo.orderId}222</td>
+                    <td>${userInfo.userId}333</td>
+                    <td>${userInfo.salerId}</td>
+                    <td>${userInfo.goodName}</td>
+                    <td>${userInfo.totalCount}</td>
+                    <td>${userInfo.price}</td>
+                    <td>
+                      <c:if test="${userInfo.status==0}">未发货</c:if>
+                      <c:if test="${userInfo.status==1}">已发货</c:if>
+                      <c:if test="${userInfo.status==2}">已收货</c:if>
 
-                        <td>
-                            <c:if test="${salerInfo.status==0}">未发货</c:if>
-                            <c:if test="${salerInfo.status==1}">已发货</c:if>
-                            <c:if test="${salerInfo.status==2}">已收货</c:if>
+                      <c:if test="${userInfo.status==3}">已评价</c:if>
 
-                            <c:if test="${salerInfo.status==3}">已评价</c:if>
+                    </td>
 
-                        </td>
 
-                             <td orderId="${salerInfo.orderId}">
-
-                                 <c:if test="${salerInfo.status==0}"><a><div class="send" orderId="${salerInfo.orderId}">我已经发货</div></a></c:if>
-                             </td>
-                      </tr>
-                    </c:forEach>
-                </tbody>
+                    <td orderId="${userInfo.orderId}">
+                      <c:if test="${userInfo.status==0}"><a><div class="finish" orderId="${userInfo.orderId}">我已经收到货物</div></a></c:if>
+                    </td>
+                  </tr>
+                </c:forEach>
               </table>    
             </div>                          
           </div>          
-        <%--
+<%--
           <div class="pagination-wrap">
             <ul class="pagination">
               <li><a href="#">1</a></li>
