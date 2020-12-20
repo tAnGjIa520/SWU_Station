@@ -2,5 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/test/WebContent/WEB-INF/classes/SWU_Station" vcs="Git" />
   </component>
 </project>
