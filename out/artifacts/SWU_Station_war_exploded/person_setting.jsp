@@ -13,17 +13,8 @@
           <div class="square"></div>
           <h1>${sessionScope.user.username}的设置</h1>
         </header>
-        <div class="profile-photo-container">
-          <img src="images/profile-photo.jpg" alt="Profile Photo" class="img-responsive">
-          <div class="profile-photo-overlay"></div>
-        </div>
-        <!-- Search box -->
-        <form class="templatemo-search-form" role="search">
-          <div class="input-group">
-              <button type="submit" class="fa fa-search"></button>
-              <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-          </div>
-        </form>
+          <%@include file="default/static/icon.jsp"%>
+          <%@include file="default/static/search_bar.jsp"%>
         <div class="mobile-menu-icon">
             <i class="fa fa-bars"></i>
           </div>
@@ -89,15 +80,13 @@
                 <button type="reset" class="templatemo-white-button">重置</button>
               </div>
             </form>
+
+              <a href="setIcon.jsp"><button class="templatemo-blue-button">更改头像</button></a>
           </div>
             <%@ include file="/default/static/footer.jsp"%>
         </div>
       </div>
     </div>
 
-    <!-- JS -->
-   <!-- <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>        &lt;!&ndash; jQuery &ndash;&gt;
-    <script type="text/javascript" src="js/bootstrap-filestyle.min.js"></script>  &lt;!&ndash; http://markusslima.github.io/bootstrap-filestyle/ &ndash;&gt;
-    <script type="text/javascript" src="js/templatemo-script.js"></script>  -->       <!--Templatemo Script -->
   </body>
 </html>

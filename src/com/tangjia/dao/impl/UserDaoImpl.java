@@ -37,5 +37,9 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
     }
 
-
+    @Override
+    public int updateIcon(String icon, Integer userId) {
+        String sql="update USER set icon=? where id= ?";
+        return  update(sql,icon,userId);
+    }
 }

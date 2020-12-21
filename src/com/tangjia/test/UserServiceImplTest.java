@@ -26,4 +26,9 @@ public class UserServiceImplTest {
     public void register() {
         System.out.println(userService.register(user));
     }
+
+    @Test
+    public void updateIcon() {
+        userService.updateIcon(1,"1234");
+    }
 }

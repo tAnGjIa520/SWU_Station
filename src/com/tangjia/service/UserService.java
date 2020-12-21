@@ -32,4 +32,6 @@ public interface UserService {
 
     public User setUser(User user);
 
+    public int updateIcon(Integer id,String icon);
+
 }

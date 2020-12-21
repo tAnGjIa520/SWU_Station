@@ -13,25 +13,27 @@
           <div class="square"></div>
           <h1>您好！${sessionScope.user.username}</h1>
         </header>
-        <div class="profile-photo-container">
-          <img src="images/profile-photo.jpg" alt="Profile Photo" class="img-responsive">
-          <div class="profile-photo-overlay"></div>
-        </div>      
+        <%@include file="default/static/icon.jsp"%>
+
         <!-- Search box -->
-        <form class="templatemo-search-form" role="search">
+        <%@include file="default/static/search_bar.jsp"%>
+       <%-- <form class="templatemo-search-form" role="search" action="searchServlet" method="post">
+          <input type="hidden" name="action" value="search">&lt;%&ndash;隐藏&ndash;%&gt;
           <div class="input-group">
               <button type="submit" class="fa fa-search"></button>
-              <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">           
+              <input type="text" class="form-control" placeholder="Search" name="keyWords" id="srch-term" >
           </div>
-        </form>
+        </form>--%>
+
         <div class="mobile-menu-icon">
             <i class="fa fa-bars"></i>
         </div>
+
         <nav class="templatemo-left-nav">
           <ul>
             <li><a href="main_index.jsp" class="active"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
             <li><a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
-            <li><a href="orderItemServlet?action=showOrderForSaler" ><i class="fa fa-map-marker fa-fw"></i>出售记录</a></li>
+            <li><a href="orderItemServlet?action=showOrderForSaler"><i class="fa fa-map-marker fa-fw"></i>出售记录</a></li>
             <li><a href="orderItemServlet?action=showOrderForUser"><i class="fa fa-map-marker fa-fw"></i>购买记录</a></li>
             <li><a href="goodServlet?action=list"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
             <li><a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a></li>

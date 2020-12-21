@@ -28,10 +28,10 @@ public class AuthServlet extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("code",result.get("code").toString());
         System.out.println(result.get("code").toString());
+
         ImageIO.write(
                 (BufferedImage)result.get("image"),
                 "jpeg",response.getOutputStream()
-                
        );
 
 

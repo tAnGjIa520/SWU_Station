@@ -21,30 +21,14 @@
           <div class="square"></div>
           <h1>Visual Admin</h1>
         </header>
-        <div class="profile-photo-container">
-          <img src="images/profile-photo.jpg" alt="Profile Photo" class="img-responsive">
-          <div class="profile-photo-overlay"></div>
-        </div>      
-        <!-- Search box -->
-        <form class="templatemo-search-form" role="search">
-          <div class="input-group">
-              <button type="submit" class="fa fa-search"></button>
-              <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">           
-          </div>
-        </form>
+        <%@include file="default/static/icon.jsp"%>
+        <%@include file="default/static/search_bar.jsp"%>
         <div class="mobile-menu-icon">
             <i class="fa fa-bars"></i>
           </div>
         <nav class="templatemo-left-nav">
           <ul>
-            <%--
-          <li><a href="main_index.jsp" class="active"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
-            <li><a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
-            <li><a href="tradehistory.jsp"><i class="fa fa-map-marker fa-fw"></i>交易记录</a></li>
-            <li><a href="goodServlet?action=list"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
-            <li><a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a></li>
-            <li><a href="index.jsp"><i class="fa fa-eject fa-fw"></i>退出系统</a></li>
-            --%>
+
 
             <li><a href="main_index.jsp"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
             <li><a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
@@ -82,20 +66,20 @@
 
 
 
-           <c:forEach var="good" items="${requestScope.Goods}">
+           <c:forEach var="good" items="${requestScope.Goods}" >
 
 
             <div class="templatemo-flex-row flex-content-row">
 
             <div class="col-1">              
               <div class="panel panel-default margin-10" style="height:500px;">
-                <div class="panel-heading"><h2>商品<1></h2></div>
+                <div class="panel-heading"><h2>商品<></h2></div>
                   <div class="panel-body">
                     <div id="vmap_africa" class="vmap">
                         <table width="1100px" height="250px" border="1" style="border: none;">
                           <tr>
                             <td rowspan="3" height="250px" width="150px">
-                              图片
+                              <img src="photoServlet?icon=${good.id}" style="float: left;height: 200px;width: 200px" alt="Bicycle">
                             </td>
                             <td width="35%" height="50px">
   <%--=================================商品id==========================================--%>
@@ -123,8 +107,8 @@
                             <td width="35%" height="50px">
                               <div class="row form-group">
                                 <div class="col-lg-6 col-md-6 form-group">
-                                  <label >卖家</label>
-                                  <input type="text" disabled="disabled" class="form-control"  placeholder="${good.saler}" name="saler">
+                                    描述:<input disabled="disabled" type="text" name="description" placeholder="${good.description}">
+
                                 </div>
                               </div>
                             </td>
@@ -164,7 +148,9 @@
 <%--                          增加的一行--%>
                           <tr>
                             <td width="35%" height="50px">
-                                    描述:<input disabled="disabled" type="text" name="description" placeholder="${good.description}">
+                                <div class="row" style="text-align: center;">
+                                    <a href="setGoodIcon.jsp?goodId=${good.id}">修改图片</a>
+                                </div>
                             </td>
                             <%--=================================是否删除==========================================--%>
 

@@ -12,5 +12,7 @@ public interface UserDao {
 
     public int setUser(User user);
 
+    public int updateIcon(String icon,Integer userId);
+
 
 }

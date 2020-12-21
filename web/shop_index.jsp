@@ -40,11 +40,36 @@
 
             <div class="templatemo-site-header" style="margin: auto">
                 <%-- <div class="square" style="float: right;"></div>--%>
-                <h1 style="float: left;font-family: 楷体;" >
+
+                    <h1 style="float: left;font-family: 楷体;" >
                     西大微店--闲置物品一起换，低碳生活大家享
+                        <div style="width:300px;margin: auto;float: right;margin-top: 0;padding-top: 0;" >
+                            <form style="padding-left: 30px;" role="search" action="searchServlet" method="post">
+                                <input type="hidden" name="action" value="search">
+                                <div class="input-group">
+                                    <button type="submit" class="fa fa-search"></button>
+                                    <input style="background-color: black;padding-left: 50px;" type="text" class="form-control" placeholder="Search" name="keyWords" id="srch-term" >
+                                </div>
+                            </form>
+                        </div>
                 </h1>
+                <%----%>
             </div>
             <div class="row" style="float: right;">
+
+          <%--      <div style="width:200px;margin: auto" >
+                    <form class="templatemo-search-form" role="search" action="searchServlet" method="post">
+                        <input type="hidden" name="action" value="search">
+                        <div class="input-group">
+                            <button type="submit" class="fa fa-search"></button>
+                            <input type="text" class="form-control" placeholder="Search" name="keyWords" id="srch-term" >
+                        </div>
+                    </form>
+                </div>--%>
+
+
+
+
                 <nav class="templatemo-top-nav col-lg-12 col-md-12" style="float: right;">
                     <ul class="text-uppercase">
                         <li>
@@ -94,14 +119,15 @@
 
 
             </div> <!-- Second row ends -->--%>
-
+        <br>
             <div class="templatemo-flex-row flex-content-row templatemo-overflow-hidden"> <!-- overflow hidden for iPad mini landscape view-->
                 <div class="col-1 templatemo-overflow-hidden">
                     <div class="templatemo-content-widget white-bg templatemo-overflow-hidden">
 
                         <div class="templatemo-flex-row flex-content-row">
                             <div class="col-1 col-lg-6 col-md-12">
-                                <h2 class="text-center">Modular<span class="badge">new</span></h2>
+                                <%--<h2 class="text-center">Modular<span class="badge">new</span></h2>--%>
+
                                 <div id="pie_chart_div" class="templatemo-chart"></div> <!-- Pie chart div -->
                             </div>
                             <div class="col-1 col-lg-6 col-md-12">
@@ -130,7 +156,7 @@
                    <div class="square"></div>
                    <h2 class="templatemo-inline-block">商品</h2><hr>
 
-                       <img src="images/bicycle.jpg" style="float: left;" alt="Bicycle"><br>
+                       <img src="photoServlet?icon=${good.id}" style="float: left;height: 200px;width: 200px" alt="Bicycle"><br>
                        <div  style="text-align: left;">商品id： ${good.id}<br>
                            商品名:${good.goodname}<br>
                            商品描述：${good.description}<br>
@@ -153,7 +179,7 @@
                    <div class="square"></div>
                    <h2 class="templatemo-inline-block">商品</h2><hr>
 
-                   <img src="images/bicycle.jpg" style="float: left;" alt="Bicycle"><br>
+                   <img src="photoServlet?icon=${good.id}" style="float: left;height: 200px;width: 200px" alt="Bicycle"><br>
                    <div  style="text-align: left;">商品id： ${good.id}<br>
                        商品名:${good.goodname}<br>
                        商品描述：${good.description}<br>
@@ -174,7 +200,7 @@
                    <div class="square"></div>
                    <h2 class="templatemo-inline-block">商品</h2><hr>
 
-                   <img src="images/bicycle.jpg" style="float: left;" alt="Bicycle"><br>
+                   <img src="photoServlet?icon=${good.id}" style="float: left;height: 200px;width: 200px" alt="Bicycle"><br>
                    <div  style="text-align: left;">商品id： ${good.id}<br>
                        商品名:${good.goodname}<br>
                        商品描述：${good.description}<br>

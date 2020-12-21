@@ -6,11 +6,18 @@ import com.tangjia.pojo.User;
 import com.tangjia.service.GoodService;
 import com.tangjia.service.impl.GoodServiceImpl;
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.mail.HtmlEmail;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
@@ -123,6 +130,8 @@ public class GoodServlet extends BaseServlet {
         request.setAttribute("Goods", list);
 
         request.getRequestDispatcher("myGoods.jsp").forward(request,response);
+
+
     }
 
 

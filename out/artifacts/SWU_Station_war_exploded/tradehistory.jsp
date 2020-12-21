@@ -25,17 +25,8 @@
           <div class="square"></div>
           <h1>交易记录</h1>
         </header>
-        <div class="profile-photo-container">
-          <img src="images/profile-photo.jpg" alt="Profile Photo" class="img-responsive">
-          <div class="profile-photo-overlay"></div>
-        </div>      
-        <!-- Search box -->
-        <form class="templatemo-search-form" role="search">
-          <div class="input-group">
-              <button type="submit" class="fa fa-search"></button>
-              <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">           
-          </div>
-        </form>
+          <%@include file="default/static/icon.jsp"%>
+          <%@include file="default/static/search_bar.jsp"%>
         <div class="mobile-menu-icon">
             <i class="fa fa-bars"></i>
           </div>

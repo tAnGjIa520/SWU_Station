@@ -50,6 +50,18 @@
         <servlet-name>OrderItemServlet</servlet-name>
         <servlet-class>com.tangjia.web.OrderItemServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>IconServlet</servlet-name>
+        <servlet-class>com.tangjia.web.IconServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PhotoServlet</servlet-name>
+        <servlet-class>com.tangjia.web.PhotoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>com.tangjia.web.SearchServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
     <servlet-name>AuthServlet</servlet-name>
     <url-pattern>/authServlet</url-pattern>
@@ -57,5 +69,17 @@
     <servlet-mapping>
         <servlet-name>OrderItemServlet</servlet-name>
         <url-pattern>/orderItemServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IconServlet</servlet-name>
+        <url-pattern>/iconServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PhotoServlet</servlet-name>
+        <url-pattern>/photoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/searchServlet</url-pattern>
     </servlet-mapping>
 </web-app>

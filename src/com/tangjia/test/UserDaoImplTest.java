@@ -37,4 +37,10 @@ public class UserDaoImplTest {
 
     }
 
+    @Test
+    public void updateIcon() {
+        int id=1;
+        String icon="123";
+        userDao.updateIcon(icon,id);
+    }
 }

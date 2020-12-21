@@ -41,4 +41,9 @@ public class UserServiceImpl implements UserService {
         return userDao.queryUserByUsernameAndPassword(user.getUsername(),user.getPassword());
 
     }
+
+    @Override
+    public int updateIcon(Integer id, String icon) {
+        return userDao.updateIcon(icon,id);
+    }
 }
