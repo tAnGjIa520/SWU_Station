@@ -3,8 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <!--<filter>
+        <filter-name>Filter</filter-name>
+        <filter-class>com.tangjia.web.Filter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Filter</filter-name>
+        <url-pattern></url-pattern>
+    </filter-mapping>-->
 
-<!--    UserServelet-->
+
+
+
+
+    <!--    UserServelet-->
 <servlet>
     <servlet-name>UserServlet</servlet-name>
     <servlet-class>com.tangjia.web.UserServlet</servlet-class>
@@ -32,7 +44,7 @@
         <servlet-name>KaptchaServlet</servlet-name>
         <url-pattern>/code.jpg</url-pattern>
     </servlet-mapping>
-    
+    <!--==============-->
     <servlet>
         <servlet-name>CarServlet</servlet-name>
         <servlet-class>com.tangjia.web.CarServlet</servlet-class>
@@ -62,10 +74,34 @@
         <servlet-name>SearchServlet</servlet-name>
         <servlet-class>com.tangjia.web.SearchServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MessageServlet</servlet-name>
+        <servlet-class>com.tangjia.web.MessageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TestServlet</servlet-name>
+        <servlet-class>com.tangjia.web.TestServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BBSServlet</servlet-name>
+        <servlet-class>com.tangjia.web.BBSServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
-    <servlet-name>AuthServlet</servlet-name>
-    <url-pattern>/authServlet</url-pattern>
-</servlet-mapping>
+        <servlet-name>BBSServlet</servlet-name>
+        <url-pattern>/bbs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TestServlet</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MessageServlet</servlet-name>
+        <url-pattern>/message</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AuthServlet</servlet-name>
+        <url-pattern>/authServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>OrderItemServlet</servlet-name>
         <url-pattern>/orderItemServlet</url-pattern>

@@ -65,9 +65,6 @@ public class UserServlet extends BaseServlet {
         System.out.println(code);
         System.out.println(code1);
         System.out.println("===========");
-   /*
-        if (code.equalsIgnoreCase(code1) && code1!=null){
-       }*/
 
         UserServiceImpl userService = new UserServiceImpl();
 
@@ -80,7 +77,7 @@ public class UserServlet extends BaseServlet {
             System.out.println("登录成功");
             session.setAttribute("user" ,user);
             request.setAttribute("id",user.getId());
-            request.getRequestDispatcher("/main_index.jsp").forward(request,response);
+            request.getRequestDispatcher("/message?action=messageList").forward(request,response);
         }
         System.out.println("============================");
 

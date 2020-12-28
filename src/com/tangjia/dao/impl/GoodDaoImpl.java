@@ -14,7 +14,7 @@ public class GoodDaoImpl extends BaseDao implements GoodDao {
 //    id,goodname,saler,description,STATUS,DATE,CLIENT,price,photo
     @Override
     public int addGood(Good good) {
-        String sql="INSERT INTO Good (id,goodname,saler,description,STATUS,DATE,CLIENT,price,photo) VALUES ( ?,?,?,?,?,?,?,?,?)";
+        String sql="INSERT INTO Good (id,goodname,saler,description,STATUS,DATE,CLIENT,price,photo) VALUES ( ?,?,?,?,?,?,?,?,?);";
         return update(sql,good.getId(),good.getGoodname(),good.getSaler(),good.getDescription(),good.getStatus(),good.getDate(),good.getClient(),good.getPrice(),good.getPhoto());
     }
 

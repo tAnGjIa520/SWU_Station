@@ -1,11 +1,11 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
   <head>
     <title>${sessionScope.user.username}的主页</title>
     <%@ include file="default/static/header.jsp"%>
-
   </head>
-  <body>  
+  <body>
     <!-- Left column -->
     <div class="templatemo-flex-row">
       <div class="templatemo-sidebar">
@@ -17,13 +17,7 @@
 
         <!-- Search box -->
         <%@include file="default/static/search_bar.jsp"%>
-       <%-- <form class="templatemo-search-form" role="search" action="searchServlet" method="post">
-          <input type="hidden" name="action" value="search">&lt;%&ndash;隐藏&ndash;%&gt;
-          <div class="input-group">
-              <button type="submit" class="fa fa-search"></button>
-              <input type="text" class="form-control" placeholder="Search" name="keyWords" id="srch-term" >
-          </div>
-        </form>--%>
+
 
         <div class="mobile-menu-icon">
             <i class="fa fa-bars"></i>
@@ -31,7 +25,7 @@
 
         <nav class="templatemo-left-nav">
           <ul>
-            <li><a href="main_index.jsp" class="active"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
+            <li><a href="message?action=messageList" class="active"><i class="fa fa-home fa-fw"></i>我的主页<span class="badge">new</span></a></li>
             <li><a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
             <li><a href="orderItemServlet?action=showOrderForSaler"><i class="fa fa-map-marker fa-fw"></i>出售记录</a></li>
             <li><a href="orderItemServlet?action=showOrderForUser"><i class="fa fa-map-marker fa-fw"></i>购买记录</a></li>
@@ -41,63 +35,27 @@
           </ul>
         </nav>
       </div>
-      <!-- Main content --> 
+      <!-- Main content -->
       <div class="templatemo-content col-1 light-gray-bg">
 
         <%@include file="default/static/shop_bar.jsp"%>
 
         <div class="templatemo-content-container">
 
-        </div> <!-- Second row ends -->
+
         <div class="templatemo-flex-row flex-content-row">
-          <div class="templatemo-content-widget white-bg col-2">
-            <i class="fa fa-times"></i>
-            <div class="square"></div>
-            <h2 class="templatemo-inline-block">Visual Admin Template</h2><hr>
-          </div>
-          <div class="templatemo-content-widget white-bg col-1 text-center">
-            <i class="fa fa-times"></i>
-            <h2 class="text-uppercase">Maris</h2>
-            <h3 class="text-uppercase margin-bottom-10">Design Project</h3>
-            <img src="images/bicycle.jpg" alt="Bicycle" class="img-circle img-thumbnail">
-          </div>
-          <div class="templatemo-content-widget white-bg col-1">
-            <i class="fa fa-times"></i>
-            <h2 class="text-uppercase">Dictum</h2>
-            <h3 class="text-uppercase">Sedvel Erat Non</h3><hr>
-            <div class="progress">
-              <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-            </div>
-            <div class="progress">
-              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
-            </div>
-            <div class="progress">
-              <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-            </div>
-          </div>
-        </div>
+              <div class="templatemo-content-widget white-bg col-2">
+                <h2 class="templatemo-inline-block" style="padding-left:45%">留言板</h2>
+                <hr>
+                <c:forEach items="${requestScope.messageList}" var="message">
+                     ${message.date}    id为${message.id}的用户在订单号为${message.orderId}的交易中给您留言:${message.mark}
+                  <hr>
+                </c:forEach>
 
-        <div class="copyrights">Collect from <a href="https://yihaowangluo.taobao.com/" >手机天字一号网络</a></div>
-          <div class="templatemo-flex-row flex-content-row templatemo-overflow-hidden"> <!-- overflow hidden for iPad mini landscape view-->
-            <div class="col-1 templatemo-overflow-hidden">
-              <div class="templatemo-content-widget white-bg templatemo-overflow-hidden">
-                <i class="fa fa-times"></i>
-                <div class="templatemo-flex-row flex-content-row">
-
-                  <div class="col-1 col-lg-6 col-md-12">
-                    <h2 class="text-center">Modular<span class="badge">new</span></h2>
-                    <div id="pie_chart_div" class="templatemo-chart"></div> <!-- Pie chart div -->
-                  </div>
-
-                  <div class="col-1 col-lg-6 col-md-12">
-                    <h2 class="text-center">Interactive<span class="badge">new</span></h2>
-                    <div id="bar_chart_div" class="templatemo-chart"></div> <!-- Bar chart div -->
-                  </div>
-
-                </div>
               </div>
-            </div>
-          </div>
+
+
+        </div>
         <%@ include file="/default/static/footer.jsp"%>
 
         </div>

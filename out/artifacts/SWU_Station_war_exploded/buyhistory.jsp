@@ -11,8 +11,10 @@
     /*        alert("orderItemServlet?action=receiveOrder?orderId=" + $(this).attr("orderId"));*/
           })
 
-
-
+        $("#mark").click(function () {
+          location.href = "message?action=addMessage&orderId="+$(this).attr("orderId")+"&mark="+$("#markContent").val()+"&="+$("#markContent").val()+"&salerId="+$(this).attr("salerId");
+          /*        alert("orderItemServlet?action=receiveOrder?orderId=" + $(this).attr("orderId"));*/
+        })
       })
 
     </script>
@@ -32,7 +34,7 @@
           </div>
         <nav class="templatemo-left-nav">          
           <ul>
-            <li><a href="main_index.jsp"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
+            <li><a href="message?action=messageList"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
             <li><a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
               <li><a href="orderItemServlet?action=showOrderForSaler"><i class="fa fa-map-marker fa-fw"></i>出售记录</a></li>
               <li><a href="orderItemServlet?action=showOrderForUser" class="active"><i class="fa fa-map-marker fa-fw"></i>购买记录</a></li>
@@ -51,15 +53,15 @@
               <table class="table table-striped table-bordered templatemo-user-table">
                 <thead>
                   <tr>
-                    <td>序号</td>
-                    <td>订单号</td>
+                    <td >序号</td>
+                    <td >订单号</td>
                     <td>买家</td>
                     <td>卖家</td>
-                    <td>商品名称</td>
-                    <td>商品数量</td>
+                    <td >商品名称</td>
+                    <td <%--width="px"--%>>数量</td>
                     <td>商品单价</td>
-                    <td>交易状态</td>
-                    <td>动作</td>
+                    <td >交易状态</td>
+                    <td style="text-align: center" width="300px">动作</td>
                   </tr>
 
                 </thead>
@@ -77,13 +79,21 @@
                       <c:if test="${userInfo.status==1}">已发货</c:if>
                       <c:if test="${userInfo.status==2}">已收货</c:if>
 
-                      <c:if test="${userInfo.status==3}">已评价</c:if>
+                      <c:if test="${userInfo.status==3}">已留言</c:if>
 
                     </td>
 
 
-                    <td orderId="${userInfo.orderId}">
+                    <td >
                       <c:if test="${userInfo.status==0}"><a><div class="finish" orderId="${userInfo.orderId}">我已经收到货物</div></a></c:if>
+                      <c:if test="${userInfo.status==1}"><a><div class="finish" orderId="${userInfo.orderId}">我已经收到货物</div></a></c:if>
+                      <c:if test="${userInfo.status==2}"><a>
+                        <div class="mark" salerId="${userInfo.salerId}" orderId="${userInfo.orderId}">
+                            <input type="text" id="markContent"><input type="submit" value="留言" salerId="${userInfo.salerId}" orderid="${userInfo.orderId}" id="mark">
+                        </div>
+
+                      </a></c:if>
+                      <c:if test="${userInfo.status==3}"><a><div>交易已经完成</div></a></c:if>
                     </td>
                   </tr>
                 </c:forEach>

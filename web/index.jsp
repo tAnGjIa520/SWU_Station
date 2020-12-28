@@ -6,15 +6,8 @@
 	<script type="text/javascript">
 		$(function () {
 			$("#codeimg").click(function () {
-
 				this.src="authServlet?apple="+new Date();
-				/*alert("123")
-*/
 			})
-
-
-
-
 		})
 
 
@@ -43,24 +36,6 @@
 		              	<input type="password"placeholder="密码" class="form-control" name="password" >
 		          	</div>	
 	        	</div>
-
-				<div class="form-group">
-					<div class="input-group">
-						<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>
-						<input type="text" placeholder="验证码" class="form-control" name="code" >
-					</div>
-				</div>
-
-
-				<img id="codeimg" src="authServlet" style="margin: auto;text-align: center">
-	        	<!--======记住我==========================-->
-	         <!-- 	<div class="form-group">
-				    <div class="checkbox squaredTwo">
-				        <input type="checkbox" id="c1" name="cc" />
-						<label for="c1"><span></span>Remember me</label>
-				    </div>
-				</div>-->
-					<!--================================-->
 				<br>
 				<div class="form-group">
 					<button type="submit" class="templatemo-blue-button width-100">Login</button>

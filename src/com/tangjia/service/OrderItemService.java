@@ -43,7 +43,7 @@ public interface OrderItemService {
      */
     public int reseiveOrderItem(String orderId);
 
-
+    public int markOrderItem(String orderId);
 
 
 }

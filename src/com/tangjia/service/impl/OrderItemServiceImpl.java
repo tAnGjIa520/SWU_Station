@@ -86,4 +86,9 @@ public class OrderItemServiceImpl implements OrderItemService {
     public int reseiveOrderItem(String orderId) {
         return orderItemDao.changeOrderStatus(orderId,OrderItem.FINISHED);
     }
+
+    @Override
+    public int markOrderItem(String orderId) {
+        return orderItemDao.changeOrderStatus(orderId,OrderItem.REMARK);
+    }
 }

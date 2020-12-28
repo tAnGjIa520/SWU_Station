@@ -4,13 +4,6 @@
   <head>
     <title>${sessionScope.user.username}的商品</title>
     <%@ include file="default/static/header.jsp"%>
-    
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--    &lt;!&ndash;[if lt IE 9]>-->z
-<!--      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>-->
-<!--      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>-->
-<!--    <![endif]&ndash;&gt;-->
 
   </head>
   <body>  
@@ -30,9 +23,9 @@
           <ul>
 
 
-            <li><a href="main_index.jsp"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
+            <li><a href="message?action=messageList"><i class="fa fa-home fa-fw"></i>我的主页</a></li>
             <li><a href="car.jsp"><i class="fa fa-sliders fa-fw"></i>购物车</a></li>
-              <li><a href="orderItemServlet?action=showOrderForSaler" class="active"><i class="fa fa-map-marker fa-fw"></i>出售记录</a></li>
+              <li><a href="orderItemServlet?action=showOrderForSaler"><i class="fa fa-map-marker fa-fw"></i>出售记录</a></li>
               <li><a href="orderItemServlet?action=showOrderForUser"><i class="fa fa-map-marker fa-fw"></i>购买记录</a></li>
             <li><a href="goodServlet?action=list" class="active"><i class="fa fa-users fa-fw"></i>我的商品</a></li>
             <li><a href="person_setting.jsp"><i class="fa fa-sliders fa-fw"></i>设置</a></li>

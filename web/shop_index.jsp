@@ -103,8 +103,8 @@
                             </c:if>
 
                             <c:if test="${empty sessionScope.user}">
-                                <a href="index.jsp" style="text-align: center;float: right"  class="active">登陆</a>
-                                <a href="register.jsp" style="text-align: center;float: right"  class="active">注册</a>
+                                <a href="index.jsp" style="text-align: center;float: right" class="active">登陆</a>
+                                <a href="register.jsp" style="text-align: center;float: right" class="active">注册</a>
 
                             </c:if>
                         </li>
@@ -125,20 +125,10 @@
                     <div class="templatemo-content-widget white-bg templatemo-overflow-hidden">
 
                         <div class="templatemo-flex-row flex-content-row">
-                            <div class="col-1 col-lg-6 col-md-12">
-                                <%--<h2 class="text-center">Modular<span class="badge">new</span></h2>--%>
 
-                                <div id="pie_chart_div" class="templatemo-chart"></div> <!-- Pie chart div -->
-                            </div>
-                            <div class="col-1 col-lg-6 col-md-12">
-                                <h2 class="text-center">Interactive<span class="badge">new</span></h2>
-                                <div id="bar_chart_div" class="templatemo-chart"></div> <!-- Bar chart div -->
-                            </div>
+                        <img src="default/photo/bar.jpeg" width="100%" height="350px">
+
                         </div>
-
-
-
-
                     </div>
                 </div>
             </div>
@@ -154,7 +144,7 @@
                <div class="templatemo-content-widget white-bg col-2">
 
                    <div class="square"></div>
-                   <h2 class="templatemo-inline-block">商品</h2><hr>
+                   <h2 class="templatemo-inline-block">${good.goodname}</h2><hr>
 
                        <img src="photoServlet?icon=${good.id}" style="float: left;height: 200px;width: 200px" alt="Bicycle"><br>
                        <div  style="text-align: left;">商品id： ${good.id}<br>
@@ -177,7 +167,7 @@
                <div class="templatemo-content-widget white-bg col-2">
 
                    <div class="square"></div>
-                   <h2 class="templatemo-inline-block">商品</h2><hr>
+                   <h2 class="templatemo-inline-block">${good.goodname}</h2><hr>
 
                    <img src="photoServlet?icon=${good.id}" style="float: left;height: 200px;width: 200px" alt="Bicycle"><br>
                    <div  style="text-align: left;">商品id： ${good.id}<br>
@@ -198,7 +188,7 @@
                <div class="templatemo-content-widget white-bg col-2">
 
                    <div class="square"></div>
-                   <h2 class="templatemo-inline-block">商品</h2><hr>
+                   <h2 class="templatemo-inline-block">${good.goodname}</h2><hr>
 
                    <img src="photoServlet?icon=${good.id}" style="float: left;height: 200px;width: 200px" alt="Bicycle"><br>
                    <div  style="text-align: left;">商品id： ${good.id}<br>
