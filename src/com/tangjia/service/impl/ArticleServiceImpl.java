@@ -33,4 +33,9 @@ public class ArticleServiceImpl implements ArticleService {
     public List<Article> queryArticleForOne(Integer userId) {
         return articleDao.queryArticleForOne(userId);
     }
+
+    @Override
+    public Article queryArticle(int id) {
+        return articleDao.queryArticle(id);
+    }
 }

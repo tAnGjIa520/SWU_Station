@@ -15,4 +15,5 @@ public interface ArticleService {
 
     public List<Article> queryArticleForOne(Integer userId);
 
+    public Article queryArticle(int id);
 }

@@ -12,4 +12,5 @@ public interface ResponseService {
     public List<Response> queryResponseForOne(int id);
 
     public List<Response> queryResponseForArticle(int id);
+
 }

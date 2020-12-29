@@ -46,4 +46,9 @@ public class UserServiceImpl implements UserService {
     public int updateIcon(Integer id, String icon) {
         return userDao.updateIcon(icon,id);
     }
+
+    @Override
+    public User queryUser(Integer id) {
+        return userDao.queryUser(id);
+    }
 }

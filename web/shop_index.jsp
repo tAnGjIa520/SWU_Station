@@ -57,17 +57,6 @@
             </div>
             <div class="row" style="float: right;">
 
-          <%--      <div style="width:200px;margin: auto" >
-                    <form class="templatemo-search-form" role="search" action="searchServlet" method="post">
-                        <input type="hidden" name="action" value="search">
-                        <div class="input-group">
-                            <button type="submit" class="fa fa-search"></button>
-                            <input type="text" class="form-control" placeholder="Search" name="keyWords" id="srch-term" >
-                        </div>
-                    </form>
-                </div>--%>
-
-
 
 
                 <nav class="templatemo-top-nav col-lg-12 col-md-12" style="float: right;">
@@ -126,7 +115,7 @@
 
                         <div class="templatemo-flex-row flex-content-row">
 
-                        <img src="default/photo/bar.jpeg" width="100%" height="350px">
+                        <img src="default/photo/bar.jpeg" width="1200px" height="350px">
 
                         </div>
                     </div>

@@ -14,5 +14,5 @@ public interface UserDao {
 
     public int updateIcon(String icon,Integer userId);
 
-
+    public User queryUser(Integer id);
 }

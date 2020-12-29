@@ -34,4 +34,5 @@ public interface UserService {
 
     public int updateIcon(Integer id,String icon);
 
+    public User queryUser(Integer id);
 }

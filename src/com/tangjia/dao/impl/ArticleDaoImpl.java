@@ -37,4 +37,10 @@ public class ArticleDaoImpl extends BaseDao implements ArticleDao  {
         String sql="select * from Article where authorId=?;";
         return queryForList(Article.class,sql,userId);
     }
+
+    @Override
+    public Article queryArticle(int id) {
+        String sql="select * from Article where id=?;";
+        return queryForOne(Article.class,sql,id);
+    }
 }

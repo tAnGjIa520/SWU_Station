@@ -42,4 +42,10 @@ public class UserDaoImpl extends BaseDao implements UserDao {
         String sql="update USER set icon=? where id= ?";
         return  update(sql,icon,userId);
     }
+
+    @Override
+    public User queryUser(Integer id) {
+        String sql="select * from USER where id= ?";
+        return queryForOne(User.class,sql,id);
+    }
 }
