@@ -28,6 +28,7 @@ public class IconServlet extends HttpServlet {
 
     private UserService userService=new UserServiceImpl();
 
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         req.setCharacterEncoding("utf-8");
@@ -74,13 +75,21 @@ public class IconServlet extends HttpServlet {
         }
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("image/jpeg");
         String path =super.getServletContext().getRealPath("/userIcon");
         File file = new File(path);
+
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");
         int id = user.getId();
+/**/
+        String articlePhotoId = request.getParameter("articlePhotoId");
+        if (articlePhotoId!=null){
+            id=Integer.parseInt(articlePhotoId);
+        }
+/**/
         File[] f=file.listFiles();
 
         for(File i:f){
@@ -94,9 +103,11 @@ public class IconServlet extends HttpServlet {
                     fis = new FileInputStream(i);
                     int count = 0;
                     byte[] buffer = new byte[1024 * 1024];
-                    while ((count = fis.read(buffer)) != -1)
+                    while ((count = fis.read(buffer)) != -1) {
                         os.write(buffer, 0, count);
-                    os.flush();
+                        os.flush();
+                        /**/
+                    }
                 }
                 catch (IOException e)
                 {

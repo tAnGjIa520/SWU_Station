@@ -41,18 +41,29 @@ public class BBSServlet extends BaseServlet {
     }
 
     protected void deleteArticle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("已经收到请求");
+        Integer articleId = Integer.parseInt(request.getParameter("articleId"));
 
+        articleService.deleteArticle(articleId);
+
+        response.sendRedirect(request.getHeader("Referer"));
     }
+
     protected void showArticle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("正在列出商品！！");
         List<Article> articles = articleService.queryAllArticles();
         for(Article article:articles){
             System.out.println(article);
         }
+        Collections.sort(articles, new Comparator<Article>() {
+            @Override
+            public int compare(Article article, Article t1) {
+                return (int) (t1.getDate().getTime()-article.getDate().getTime());
+            }
+        });
         request.setAttribute("articleList",articles);
         System.out.println("已发送");
         request.getRequestDispatcher("pages/BBS_index.jsp").forward(request,response);
+
     }
 
     protected void getResponse(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -85,4 +96,23 @@ public class BBSServlet extends BaseServlet {
         responseService.addResponse(response2);
         response.sendRedirect(request.getHeader("Referer"));
     }
+
+    protected void showMyArticle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        User user = (User) request.getSession().getAttribute("user");
+        List<Article> articles = articleService.queryArticleForOne(user.getId());
+        Collections.sort(articles, new Comparator<Article>() {
+            @Override
+            public int compare(Article article, Article t1) {
+                return (int) (t1.getDate().getTime()-article.getDate().getTime());
+            }
+        });
+
+        request.setAttribute("articleList",articles);
+        System.out.println("已发送");
+        request.getRequestDispatcher("pages/BBS_index.jsp").forward(request,response);
+
+
+
+    }
+
 }

@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
-    <title>欢迎来到西大微店！！</title>
+    <title>BBS</title>
     <%@ include file="../default/static/header.jsp"%>
 </head>
 <script type="text/javascript">
@@ -61,7 +61,8 @@
                     <li>
                         <c:if test="${not empty sessionScope.user}">
                             <div class="templatemo-site-header" style="float:right;margin: auto">
-                                <div class="square" style="float: left;font-size: medium"></div>
+                                <img  style="display:inline;margin: auto;width:40px;height:40px;" src="iconServlet" alt="Profile Photo" class="img-responsive">
+
                                 <h1 style="float:right;font-size: 180%">
                                     您好！！${sessionScope.user.username}
                                 </h1>
@@ -98,31 +99,7 @@
             </nav>
         </div>
     </div>
-        <%--<div class="templatemo-top-nav-container"style="background-color:/*white */ #1F2124;height: 70px;" >
 
-            <div class="templatemo-site-header" style="margin: auto">
-                &lt;%&ndash; <div class="square" style="float: right;"></div>&ndash;%&gt;
-
-                    <h1 style="float: left;font-family: 楷体;" >
-                    西大微店——专用论坛
-                        <div style="width:300px;margin: auto;float: right;margin-top: 0;padding-left: 200px;" >
-                            <form style="padding-left: 30px;" role="search" action="searchServlet" method="post">
-                                <input type="hidden" name="action" value="search">
-                                <div class="input-group">
-                                    <button type="submit" class="fa fa-search"></button>
-                                    <input style="background-color: black;padding-left: 50px;width: 500px;" type="text" class="form-control" placeholder="Search" name="keyWords" id="srch-term" >
-                                </div>
-                            </form>
-                        </div>
-                </h1>
-            </div>
-            <div class="row" style="float: right;">
-
-                <nav class="templatemo-top-nav col-lg-12 col-md-12" style="float: right;">
-
-                </nav>
-            </div>
-        </div>--%>
     <%--上面的那一横条（结束）--%>
         <div style="width: 80%;text-align: center;margin: 0px auto;" >
 
@@ -141,12 +118,30 @@
 
 <%--上面那一块--%>
 <%--下面那一块--%>
+       <%--     <div style="background-color: grey;border-radius: 10px;height: 50px;width: 100px">刷新</div>--%>
+
+            <a href="bbs?action=showArticle"><button type="reset" class="templatemo-white-button" style="width: 200px;border-radius: 10px" href="">刷新</button></a>
+            <a href="bbs?action=showMyArticle"><button type="reset" class="templatemo-white-button" style="width: 200px;border-radius: 10px" href="">只看我的</button></a>
+            <a href="bbs?action=showArticle#page2"><button type="reset" class="templatemo-white-button" style="width: 200px;border-radius: 10px" href="">我要发帖！！！</button></a>
+
+
+
+
+
             <c:forEach var="article" items="${requestScope.articleList}" varStatus="index">
        <div class="templatemo-flex-row flex-content-row" style="padding-left:10px;white-space:normal;width: 100%;">
                <div class="templatemo-content-widget white-bg col-2" style="margin-left:0px;text-align: left">
+                   <img style="display:inline;margin: auto;width:40px;height:40px;" src="iconServlet?articlePhotoId=${article.authorId}" alt="Profile Photo" class="img-responsive">
+                   <div class="square" style="text-align:center;"> </div>
+                    <c:if test="${article.authorId==sessionScope.user.id}">
+                        <a href="bbs?action=deleteArticle&articleId=${article.id}"><i class="fa fa-times" goodItem="${carItem.key}">删除帖子</i></a>
+                        <span class="badge">我的</span>
+                    </c:if>
+
+
                    <h3 style="text-align: left;margin-left: 0px;" class="templatemo-inline-block">${article.date} </h3>
                    <a href=""><h3 style="text-align: left" class="templatemo-inline-block">${article.title}</h3></a><hr>
-                   <div>${article.content.substring(0,10)}.....</div>
+                   <div>${article.content.substring(0,5)}.....</div>
 
                    <button articleId="${article.id}" class="templatemo-blue-button width-100"  style="margin-top: 20px;width: 100px" onclick="disp()">评论</button>
 
@@ -163,12 +158,13 @@
 
 
 
-
+<div id="page2"></div>
             <form method="post" action="bbs">
                 <input type="hidden" name="action" value="addArticle">
                 <div class="templatemo-flex-row flex-content-row" style="padding-left:10px;white-space:normal;width: 100%;border-radius: 10px;background-color: grey;">
                     <div class="templatemo-content-widget white-bg col-2" style="margin-left:0px;text-align: left">
                         <h3 style="text-align: left;margin-left: 0px;" class="templatemo-inline-block">${article.date} </h3>
+                        楼主：${sessionScope.user.username}
                         <a href=""><h3 style="text-align: left" class="templatemo-inline-block">${article.title}</h3></a><hr>
                             标题：<input type="text" name="title">
 
