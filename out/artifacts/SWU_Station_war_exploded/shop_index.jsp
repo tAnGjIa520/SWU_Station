@@ -115,7 +115,7 @@
 
                         <div class="templatemo-flex-row flex-content-row">
 
-                        <img src="default/photo/bar.jpeg" width="800px" height="350px">
+                        <img src="default/photo/bar.jpeg" width="1000px" height="350px">
 
                         </div>
                     </div>
