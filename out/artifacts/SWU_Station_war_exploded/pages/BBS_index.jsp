@@ -146,7 +146,7 @@
                <div class="templatemo-content-widget white-bg col-2" style="margin-left:0px;text-align: left">
                    <h3 style="text-align: left;margin-left: 0px;" class="templatemo-inline-block">${article.date} </h3>
                    <a href=""><h3 style="text-align: left" class="templatemo-inline-block">${article.title}</h3></a><hr>
-                   <div>${article.content.substring(0,10)}.....</div>
+                           <div>${article.content.substring(0,5)}.....</div>
 
                    <button articleId="${article.id}" class="templatemo-blue-button width-100"  style="margin-top: 20px;width: 100px" onclick="disp()">评论</button>
 

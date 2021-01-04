@@ -42,7 +42,7 @@
                 <%-- <div class="square" style="float: right;"></div>--%>
 
                     <h1 style="float: left;font-family: 楷体;" >
-                    西大微店--闲置物品一起换，低碳生活大家享
+                    西大微店-闲置物品一起换，低碳生活大家享
                         <div style="width:300px;margin: auto;float: right;margin-top: 0;padding-top: 0;" >
                             <form style="padding-left: 30px;" role="search" action="searchServlet" method="post">
                                 <input type="hidden" name="action" value="search">
@@ -66,7 +66,9 @@
                                 <div class="templatemo-site-header" style="float:right;margin: auto">
                                     <div class="square" style="float: left;font-size: medium"></div>
                                     <h1 style="float:right;font-size: 180%">
-                                        您好！！${sessionScope.user.username}
+                                        <c:if test="${sessionScope.user.username.length()>=3}">您好！${sessionScope.user.username.substring(0,3)}...</c:if>
+                                        <c:if test="${sessionScope.user.username.length()<3}">您好！${sessionScope.user.username}</c:if>
+
                                     </h1>
                                 </div>
                                 <div class="templatemo-site-header" style="float:right;margin: auto;">
