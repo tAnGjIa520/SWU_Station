@@ -54,6 +54,7 @@
 <%@ include file="/default/static/footer.jsp"%>
 </body>
 
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script type="text/javascript">
     var iptGood=document.getElementById('txt-Good');
     var iptPrice=document.getElementById('txt-price');
@@ -104,4 +105,5 @@
 
 
 </script>
+
 </html>
