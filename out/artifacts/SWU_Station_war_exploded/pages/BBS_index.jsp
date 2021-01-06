@@ -64,7 +64,15 @@
                                 <img  style="display:inline;margin: auto;width:40px;height:40px;" src="iconServlet" alt="Profile Photo" class="img-responsive">
 
                                 <h1 style="float:right;font-size: 180%">
-                                    您好！！${sessionScope.user.username}
+                                    您好！！
+                                    <c:if test=" ${sessionScope.user.username.length()>3}">
+                                        <div>${sessionScope.user.username.substring(0,3)}.....</div>
+                                    </c:if>
+                                    <c:if test=" ${sessionScope.user.username.length()<=3}">
+                                        <div>${sessionScope.user.username}</div>
+                                    </c:if>
+
+
                                 </h1>
                             </div>
                             <div class="templatemo-site-header" style="float:right;margin: auto;">
@@ -75,10 +83,7 @@
                                         <c:if test="${not (sessionScope.car.totalCount==0 || empty sessionScope.car)}">
                                             <div  class="set" >${sessionScope.car.totalCount}</div>
                                         </c:if>
-
-
                                     </a>
-
                                 </h1>
                                 <h1 style="float:right;font-size: 80%">
                                     <a href="goodServlet?action=list"><i class="fa fa-users fa-fw"></i>我的商品</a>
@@ -140,12 +145,10 @@
 
 
                    <h3 style="text-align: left;margin-left: 0px;" class="templatemo-inline-block">${article.date} </h3>
-                   <a href=""><h3 style="text-align: left" class="templatemo-inline-block">${article.title}</h3></a><hr>
-<<<<<<< HEAD
-                           <div>${article.content.substring(0,5)}.....</div>
-=======
-                   <div>${article.content.substring(0,5)}.....</div>
->>>>>>> 0444aec3a971614106f67f064e080c31567e9461
+                   <a href="bbs?action=getResponse&articleId=${article.id}"><h3 style="text-align: left" class="templatemo-inline-block">${article.title}</h3></a><hr>
+                    <c:if test="${article.content.length()>=3}">
+                           <div>${article.content.substring(0,3)}.....</div>
+                    </c:if>
 
                    <button articleId="${article.id}" class="templatemo-blue-button width-100"  style="margin-top: 20px;width: 100px" onclick="disp()">评论</button>
 
@@ -156,7 +159,7 @@
        </div>
             </c:forEach>
 
-
+<%--帖子--%>
 
 
 

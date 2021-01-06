@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 public class MessageServlet extends BaseServlet {
@@ -57,6 +58,9 @@ public class MessageServlet extends BaseServlet {
         for (Message message:messages){
             System.out.println(message);
         }
+
+
+
         request.setAttribute("messageList",messages);
         request.getRequestDispatcher("main_index.jsp").forward(request,response);
 

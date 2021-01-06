@@ -10,6 +10,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FilenameUtils;
 
 import javax.imageio.ImageIO;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -30,7 +31,8 @@ public class IconServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        System.out.println("已经收到");
+        System.out.println(req.getSession().getAttribute("user"));
         req.setCharacterEncoding("utf-8");
         //解析和检查请求，是否是post方式，是否是二进制流格式
         Boolean isMultipart= ServletFileUpload.isMultipartContent(req);
@@ -73,6 +75,7 @@ public class IconServlet extends HttpServlet {
         catch (Exception e){
             e.printStackTrace();
         }
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("message?action=messageList");
     }
 
     @Override
@@ -115,10 +118,12 @@ public class IconServlet extends HttpServlet {
                 }
                 finally
                 {
-                    if (os != null)
+                    if (os != null) {
                         os.close();
-                    if (fis != null)
+                    }
+                    if (fis != null) {
                         fis.close();
+                    }
                 }
 
 
@@ -136,8 +141,9 @@ public class IconServlet extends HttpServlet {
                 fis = new FileInputStream(absolutePath + File.separatorChar+name);
                 int count = 0;
                 byte[] buffer = new byte[1024 * 1024];
-                while ((count = fis.read(buffer)) != -1)
+                while ((count = fis.read(buffer)) != -1) {
                     os.write(buffer, 0, count);
+                }
                 os.flush();
             }
             catch (IOException e)
@@ -146,10 +152,12 @@ public class IconServlet extends HttpServlet {
             }
             finally
             {
-                if (os != null)
+                if (os != null) {
                     os.close();
-                if (fis != null)
+                }
+                if (fis != null) {
                     fis.close();
+                }
             }
 
 

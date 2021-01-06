@@ -19,6 +19,7 @@ public class AuthServlet extends HttpServlet {
     //private Object BufferedImage;
    // public final static String AUTH_SECRETE = "AUTH_SECRETE";
 
+    @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Map<String, Object> result = this.createImage();
        // HttpSession session = request.getSession(true);

@@ -1,5 +1,7 @@
 package com.tangjia.web;
 
+import com.google.gson.Gson;
+import com.tangjia.Utils.MailUtils;
 import com.tangjia.pojo.User;
 import com.tangjia.service.UserService;
 import com.tangjia.service.impl.UserServiceImpl;
@@ -193,5 +195,13 @@ public class UserServlet extends BaseServlet {
 
     }
 
-
+    protected void fetchPassword(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        String username = req.getParameter("username");
+        String email = req.getParameter("email");
+        UserService userService = new UserServiceImpl();
+        User user = userService.fetchPassword(username, email);
+        MailUtils.send(user.getEmail(),"SWU_Station","您的密码是："+user.getPassword());
+        System.out.println(user);
+        resp.getWriter().write("1");
+    }
 }

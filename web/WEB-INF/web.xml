@@ -118,4 +118,7 @@
         <servlet-name>SearchServlet</servlet-name>
         <url-pattern>/searchServlet</url-pattern>
     </servlet-mapping>
+
+    <!---->
+
 </web-app>

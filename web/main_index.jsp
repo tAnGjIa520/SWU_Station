@@ -12,7 +12,6 @@
     </script>
   </head>
   <body>
-    <!-- Left column -->
     <div class="templatemo-flex-row">
       <div class="templatemo-sidebar">
         <header class="templatemo-site-header">
@@ -51,16 +50,13 @@
 
         <div class="templatemo-flex-row flex-content-row">
               <div class="templatemo-content-widget white-bg col-2">
-                <h2 class="templatemo-inline-block" style="padding-left:45%">留言板</h2>
+                <h2 class="templatemo-inline-block" style="padding-left:45%">消息通知</h2>
                 <hr>
                 <c:forEach items="${requestScope.messageList}" var="message">
                      ${message.date}    id为${message.id}的用户在订单号为${message.orderId}的交易中给您留言:${message.mark}
                   <hr>
                 </c:forEach>
-
               </div>
-
-
         </div>
         <%@ include file="/default/static/footer.jsp"%>
 

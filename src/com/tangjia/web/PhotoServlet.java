@@ -52,6 +52,7 @@ public class PhotoServlet extends HttpServlet {
                     String path =super.getServletContext().getRealPath("/goodIcon");
                     File[] f=new File(path).listFiles();
                     for(File i:f){
+                        System.out.println("打印："+f);
                         if (i.getName().startsWith(id)){
                             i.delete();
                         }

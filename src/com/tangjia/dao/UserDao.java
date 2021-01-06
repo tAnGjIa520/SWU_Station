@@ -15,4 +15,7 @@ public interface UserDao {
     public int updateIcon(String icon,Integer userId);
 
     public User queryUser(Integer id);
+
+    public User queryByUserNameEmail(String username,String email);
+
 }

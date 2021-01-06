@@ -43,4 +43,9 @@ public class UserDaoImplTest {
         String icon="123";
         userDao.updateIcon(icon,id);
     }
+    @Test
+    public void test(){
+        User user = userDao.queryByUserNameEmail("ro4", "email");
+        System.out.println(user);
+    }
 }

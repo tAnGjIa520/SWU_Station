@@ -46,6 +46,9 @@
 		<div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
 			<p>还没有账号？？？ ！！！<strong><a href="register.jsp" class="blue-text">不妨注册一个</a></strong></p>
 		</div>
+		<div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
+			<p><strong><a href="fetchPassword.jsp" class="blue-text">忘记密码</a></strong></p>
+		</div>
 		<%@ include file="/default/static/footer.jsp"%>
 	</body>
 </html>
