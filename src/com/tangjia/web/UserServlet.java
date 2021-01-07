@@ -220,4 +220,14 @@ public class UserServlet extends BaseServlet {
         MailUtils.send(user.getEmail(),"SWU_Station","有用户向您发出会话：请尽快登陆 http://localhost:8080/SWU_Station ");
         response.getWriter().write("1");
     }
+
+    protected void chatWithSaler(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException{
+        int salerId = Integer.parseInt(req.getParameter("salerId"));
+        UserService userService=new UserServiceImpl();
+        User user = userService.queryUser(salerId);
+        System.out.println(user);
+        req.setAttribute("saler",user.getUsername());
+        req.getRequestDispatcher("chatRoom/chatRoom.jsp").forward(req,response);
+    }
+
 }

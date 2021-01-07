@@ -127,28 +127,74 @@
        <div class="templatemo-flex-row flex-content-row" style="white-space:normal;">
            <c:forEach var="good" begin="0" end="2" items="${requestScope.allGood}">
 
-               <%@include file="default/static/good.jsp"%>
+               <div class="templatemo-content-widget white-bg col-2">
+
+                   <div class="square"></div>
+                   <h2 class="templatemo-inline-block">${good.goodname} <span style="color: grey">${good.price}￥</span><a href="userServlet?action=chatWithSaler&salerId=${good.saler}" target="_blank"><span class="badge" >私聊卖家</span></a></h2><hr>
+
+                   <img src="photoServlet?icon=${good.id}" style="height: 200px;width:200px" alt="Bicycle"><br>
+                   <div  >
+                       <h4 style="text-align: left">${good.description}<br></h4>
+                   </div>
+
+                   <button goodId="${good.id}"  class="templatemo-blue-button width-100" style="margin-top: 20px">加入购物车！</button>
+
+
+               </div>
            </c:forEach>
        </div>
 
        <div class="templatemo-flex-row flex-content-row" style="white-space:normal;">
            <c:forEach var="good" begin="3" end="5" items="${requestScope.allGood}">
+               <div class="templatemo-content-widget white-bg col-2">
 
-               <%@include file="default/static/good.jsp"%>
+                   <div class="square"></div>
+                   <h2 class="templatemo-inline-block">${good.goodname} <span style="color: grey">${good.price}￥</span><a href="userServlet?action=chatWithSaler&salerId="+${good.saler} target="_blank"><span class="badge" >私聊卖家</span></a></h2><hr>
+
+                   <img src="photoServlet?icon=${good.id}" style="height: 200px;width:200px" alt="Bicycle"><br>
+                   <div  >
+
+
+                       <h4 style="text-align: left">${good.description}<br></h4>
+
+
+                   </div>
+
+                   <button goodId="${good.id}"  class="templatemo-blue-button width-100" style="margin-top: 20px">加入购物车！</button>
+
+
+               </div>
 
            </c:forEach>
        </div>
 
        <div class="templatemo-flex-row flex-content-row" style="white-space:normal;">
            <c:forEach var="good" begin="6" end="8" items="${requestScope.allGood}">
-               <%@include file="default/static/good.jsp"%>
+               <div class="templatemo-content-widget white-bg col-2">
+
+                   <div class="square"></div>
+                   <h2 class="templatemo-inline-block">${good.goodname} <span style="color: grey">${good.price}￥</span><a href="userServlet?action=chatWithSaler&salerId="+${good.saler} target="_blank"><span class="badge" >私聊卖家</span></a></h2><hr>
+
+                   <img src="photoServlet?icon=${good.id}" style="height: 200px;width:200px" alt="Bicycle"><br>
+                   <div  >
+
+
+                       <h4 style="text-align: left">${good.description}<br></h4>
+
+
+                   </div>
+
+                   <button goodId="${good.id}"  class="templatemo-blue-button width-100" style="margin-top: 20px">加入购物车！</button>
+
+
+               </div>
            </c:forEach>
        </div>
-            <%--================================--%>
-
        </div>
     <%@ include file="/default/static/footer.jsp"%>
     </div>
 </body>
+<script >
 
+</script>
 </html>

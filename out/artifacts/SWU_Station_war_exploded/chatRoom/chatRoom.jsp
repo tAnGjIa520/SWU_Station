@@ -106,7 +106,7 @@
 <body>
     <!-- Main content -->
     <div class="templatemo-content col-1 light-gray-bg">
-        <div style="width:70%;/*height:100px*/;text-align: center;margin: 0px auto;" >
+        <div style="width:70%;text-align: center;margin: 0px auto;" >
         <br>
             <div class="templatemo-flex-row flex-content-row templatemo-overflow-hidden" style="border-radius: 20px;margin-left:0px;text-align: left"> <!-- overflow hidden for iPad mini landscape view-->
 
@@ -134,12 +134,12 @@
                                    <td width="70%" height=40%" style="margin-top: 0px;top: 0;">
                                        <div class="talk_show" style="width: 250px;border-color: white"><div class="systalk">消息列表</div>
                                            <ul id="userList">
-                                               <%--<li onclick='showChat("root")'>
+                                               <li onclick='showChat("${requestScope.saler}")'>
                                                        <div class="panel panel-default margin-10" style="height:40px;width:240px; border-color:#329AA1;border-width: 2px;text-align: center;vertical-align:center "  >
-                                                           <h4>root</h4>
+                                                           <h4>${requestScope.saler}</h4>
 
                                                </div>
-                                               </li>--%>
+                                               </li>
 
                                            </ul>
                                        </div>
@@ -176,7 +176,8 @@
     var userList=[];
     var fromname="${sessionScope.user.username}";
     var websocket = null;
-    var toname ="root";
+    var toname ="${requestScope.saler}";
+
     /*alert("您正在和"+toname+"交流")*/
 
     //将消息显示在网页上
@@ -261,8 +262,8 @@
 <script type="text/javascript">
     $(function(){
 
+        alert(toname);
         A_talk=function(){
-
             var vals=$('#talkwords').val()
             if (vals=='')
             {
@@ -286,11 +287,8 @@
         }
 
         B_talk=function(string){
-
-
             var str=""
             str='<div class="btalk"><span>'+ string+'</span></div>'
-
             var splitElement = string.split("|")[1];
             var item = sessionStorage.getItem(splitElement);
             if (item!=null){
@@ -309,8 +307,6 @@
         }
 
         SYS_talk=function(string){
-
-
             var str=""
             str='<div class="systalk"><span>'+ string+'</span></div>'
             //原有的内容+str,否则会覆盖掉原有内容
@@ -318,7 +314,6 @@
             //发送完数据后清空输入框
             $('#talkwords').val('')
         }
-
         $('#talksub').click(function(){
             A_talk();
         })
