@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 	<head>
@@ -36,6 +37,11 @@
 		              	<input type="password"placeholder="密码" class="form-control" name="password" >
 		          	</div>	
 	        	</div>
+				<c:if test="${requestScope.isSuccess==1}">
+					<label style="color: red">登陆错误了哟！！</label>
+				</c:if>
+
+				<br>
 				<br>
 				<div class="form-group">
 					<button type="submit" class="templatemo-blue-button width-100">Login</button>

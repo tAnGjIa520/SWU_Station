@@ -16,14 +16,28 @@
     var tipPwd2=document.getElementById('tip-pwd2');
     var tipMailbox=document.getElementById('tip-Mailbox');
 
-/*
-    //对用户名和密码进行校验
-    function valForm(){
-        return valUserName()&&valPwd()&&valMailbox();
-    }
-*/
     $("#txt-name").blur(function () {
         valUserName();
+       /* $("#isSuccess").css("display","inline");*/
+/*        alert($("#txt-name").val());*/
+        $.get(
+            "userServlet",
+            {
+                action:"isExist",
+                username:$("#txt-name").val()
+            }
+            ,function (data) {
+                if(data=="1"){
+                    $("#isSuccess").css("display","inline");
+                    $("#isSuccess2").css("display","none");
+                }else{
+                    $("#isSuccess").css("display","none");
+                    $("#isSuccess2").css("display","inline");
+                }
+            }
+            ,"text"
+
+        )
     })
 
     $("#pwd").blur(function () {

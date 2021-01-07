@@ -145,7 +145,7 @@
                                             评论id：${response.id}&nbsp;&nbsp;&nbsp;&nbsp;
                                             ${response.date}
 
-                                            <hr>
+                                            <span class="badge">new</span>
 
                                             <div style="font-size:1em">${response.content}</div>
                                             <div  >

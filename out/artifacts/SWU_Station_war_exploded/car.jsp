@@ -103,7 +103,6 @@
                     <div class="col-1">
                       <div  style="height: 0px"></div>&nbsp;
                       <h3 class="text-center margin-bottom-5">购物车中共有${sessionScope.car.totalCount}件商品，总价${sessionScope.car.totalPrice}软妹币&nbsp;&nbsp;&nbsp;&nbsp;<a href="orderItemServlet?action=createOrder">>>>>去结算</a></h3>
-                        <%--  <a href="goodServlet?action=listAll"><p class="text-center">点我前往商城</p></a>--%>
                       <i class="fa fa-times" id="clearCar" style="float: bottom">清空购物车</i>
                     </div>
                   </div>

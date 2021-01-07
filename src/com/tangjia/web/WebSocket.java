@@ -35,25 +35,33 @@ public class WebSocket extends HttpServlet{
 		
 		//登录的用户
 		private String user;
-		
+
+		private String to;
 		//客户端的session
 		private HttpSession httpSession;
 
 		@OnOpen
-		public void onOpen(Session session, EndpointConfig config){
+		public void onOpen(Session session, EndpointConfig config) throws IOException {
 			this.session = session;
 			//将httpsession注入到该线程的属性中
 			this.httpSession = (HttpSession) config.getUserProperties().get(HttpSession.class.getName());
 			User user1 = (User) httpSession.getAttribute("user");
 			//获取当前httpsession中的user
 			this.user = user1.getUsername();
+
 			System.out.println("当前登录的用户为"+ this.user);
 			if (isLogin(this.user)) {
 				System.out.println("当前用户已经加入！当前在线人数为" + getOnlineCount());
 			}else{
 				webSocketSet.add(this);     //加入set中
 				addOnlineCount();           //在线数加1
+
 				System.out.println("有新连接加入！当前在线人数为" + getOnlineCount());
+			}
+//在发消息的时候进行提醒例如有一个消息发送过来了那么就进行推送
+			for (WebSocket webSocket:webSocketSet){
+				webSocket.sendMessage("$[加入会话]:"+user+"加入会话");
+				webSocket.sendMessage("$[增加好友]:"+user);
 			}
 		}
 
@@ -73,8 +81,9 @@ public class WebSocket extends HttpServlet{
 			HashMap<String,String> map = MessageUtil.getMessage(message);
 			String fromname = map.get("forName");
 			String toname = map.get("toName");
+
 			String content = map.get("content");
-			System.out.println("来自客户端" + user + "的消息:" + message);
+			System.out.println("来自客户端|" + user + "|的消息:" + message);
 			if (this.user.equals(fromname)) {
 				try {
 					this.sendMessage("客户端异常");
@@ -89,8 +98,8 @@ public class WebSocket extends HttpServlet{
 				for(WebSocket item: webSocketSet){
 					try {
 						if (item.user.equals(toname)) {
-							this.sendMessage("发送给"+toname+"的消息:"+content);
-							item.sendMessage("来自"+user+"的消息:"+content);
+							/*this.sendMessage("发送给"+toname+"的消息:"+content);*/
+							item.sendMessage("来自|"+user+"|的消息:"+content);
 						}
 					} catch (IOException e) {
 						e.printStackTrace();
@@ -99,7 +108,7 @@ public class WebSocket extends HttpServlet{
 				}
 			}else{
 				try {
-					this.sendMessage("该好友未登录！");
+					this.sendMessage("$[登录异常]:该好友未登录！");
 					System.out.println("该好友没登录");
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -151,15 +160,15 @@ public class WebSocket extends HttpServlet{
 			this.httpSession = httpSession;
 		}
 
-	public static CopyOnWriteArraySet<WebSocket> getWebSocketSet() {
+		public static CopyOnWriteArraySet<WebSocket> getWebSocketSet() {
 		return webSocketSet;
 	}
 
-	public String getUser() {
+		public String getUser() {
 		return user;
 	}
 
-	public void setUser(String user) {
+		public void setUser(String user) {
 		this.user = user;
 	}
 }

@@ -9,7 +9,7 @@
 <div class="templatemo-content-widget white-bg col-2">
 
     <div class="square"></div>
-    <h2 class="templatemo-inline-block">${good.goodname} <span style="color: grey">${good.price}￥</span><a href="chatRoom/chatRoom.jsp?salerId=${good.saler}" target="_blank"><span class="badge" >私聊卖家</span></a></h2><hr>
+    <h2 class="templatemo-inline-block">${good.goodname} <span style="color: grey">${good.price}￥</span><a href="chatRoom/chatRoom.jsp?${}" target="_blank"><span class="badge" >私聊卖家</span></a></h2><hr>
 
     <img src="photoServlet?icon=${good.id}" style="float: left;height: 200px;width: 200px" alt="Bicycle"><br>
     <div  >
@@ -24,3 +24,7 @@
 
 
 </div>
+<script type="text/javascript">
+
+
+</script>

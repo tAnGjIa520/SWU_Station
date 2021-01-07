@@ -37,4 +37,6 @@ public interface UserService {
     public User queryUser(Integer id);
 
     public User fetchPassword(String username,String email);
+
+    public User queryByUsername(String username);
 }

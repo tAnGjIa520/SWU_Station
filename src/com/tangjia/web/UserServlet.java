@@ -64,16 +64,14 @@ public class UserServlet extends BaseServlet {
          String code = (String)session.getAttribute("code");
 
         String code1 = request.getParameter("code");
-        System.out.println(code);
-        System.out.println(code1);
-        System.out.println("===========");
 
         UserServiceImpl userService = new UserServiceImpl();
 
         User user=userService.login(request.getParameter("username"),request.getParameter("password"));
         if (user==null){
             System.out.println("登陆失败");
-            request.getRequestDispatcher("/login_fail.jsp").forward(request,response);
+            request.setAttribute("isSuccess",1);
+            request.getRequestDispatcher("/index.jsp").forward(request,response);
         }else {
             System.out.println(user);
             System.out.println("登录成功");
@@ -88,7 +86,6 @@ public class UserServlet extends BaseServlet {
     protected void register(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-//        response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
 
         String kaptcha_session_key =(String) session.getAttribute("KAPTCHA_SESSION_KEY");
@@ -98,7 +95,6 @@ public class UserServlet extends BaseServlet {
             User user = new User();
             UserService userService = new UserServiceImpl();
             try {
-
                 BeanUtils.populate(user,request.getParameterMap());
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
@@ -203,5 +199,25 @@ public class UserServlet extends BaseServlet {
         MailUtils.send(user.getEmail(),"SWU_Station","您的密码是："+user.getPassword());
         System.out.println(user);
         resp.getWriter().write("1");
+    }
+
+    protected void isExist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        String username = request.getParameter("username");
+        System.out.println("=====");
+        UserService userService=new UserServiceImpl();
+        boolean b = userService.existUsername(username);
+        if (b){
+            response.getWriter().write("1");
+        }else {
+            response.getWriter().write("0");
+        }
+    }
+
+    protected void remind(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException{
+        String username = req.getParameter("username");
+        UserService userService=new UserServiceImpl();
+        User user = userService.queryByUsername(username);
+        MailUtils.send(user.getEmail(),"SWU_Station","有用户向您发出会话：请尽快登陆 http://localhost:8080/SWU_Station ");
+        response.getWriter().write("1");
     }
 }

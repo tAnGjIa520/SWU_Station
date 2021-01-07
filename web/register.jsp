@@ -26,7 +26,6 @@
         <!--===用户名=============================-->
         <div class="form-group">
             <div class="input-group">
-<!--                <div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>-->
                 <div class="input-group-addon">用户名&nbsp&nbsp&nbsp&nbsp</div>
                 <input type="text" class="form-control" name="username" id="txt-name">
             </div>
@@ -73,18 +72,8 @@
             </div>
         </div>
 
-        <!--================================-->
-        <!--<div class="form-group">
-            <div class="checkbox squaredTwo">
-                <input type="checkbox" id="c1" name="cc" />
-                <label for="c1"><span></span>Remember me</label>
-            </div>
-        </div>-->
-        <!--================================-->
-        <div class="form-group">
-            ${empty requestScope.losetime?"" :"已经存在这个用户"}
-        </div>
-
+             <label style="color: red;display: none" id="isSuccess">已存在这个用户</label>
+              <label style="color: red;display: none" id="isSuccess2">用户名可用</label>
         <div class="form-group">
             ${empty requestScope.codeerror? "" :"验证码错误了！亲！"}
         </div>
@@ -95,7 +84,10 @@
     </form>
     <!--表单部分结束-->
 </div>
-
+<div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
+    <p><strong><a class="blue-text" href="">返回主页</a></strong></p>
+    <%-- href="" --%>
+</div>
 
 <%@ include file="/default/static/footer.jsp"%>
 </body>
@@ -104,13 +96,7 @@
 <script type="text/javascript">
 
 
-   /* var codeimg = document.getElementById(codeimg);
-    codeimg.onclick=function () {
-        window.alert("nihao");
-    }*/
      $(function(){
-
-
 
          $("#codeimg").click(function () {
      /*        alert("刷新验证码");*/

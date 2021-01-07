@@ -22,9 +22,6 @@
                       goodId:Id
                   },//参数
                   function (data) {
-
-
-
                   },//调用成功的函数
                   "text"//返回值类型
               )

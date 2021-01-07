@@ -45,10 +45,7 @@
 		</div>
 		<div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
 			<p><strong><a class="blue-text" href="">返回主页</a></strong></p>
-			<%-- href="" --%>
 		</div>
-
-
 		<%@ include file="/default/static/footer.jsp"%>
 	</body>
 <script>

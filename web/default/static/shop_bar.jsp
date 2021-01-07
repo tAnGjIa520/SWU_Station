@@ -12,7 +12,7 @@
             <ul class="text-uppercase">
                 <li><a href="goodServlet?action=listAll" class="active">商城</a></li>
                 <li><a href="<%--pages/BBS_index.jsp--%>bbs?action=showArticle" class="active">论坛</a></li>
-                <li><a href="chatRoom/chatRoom.jsp" class="active">聊天室</a></li>
+                <li><a href="chatRoom/chatRoom.jsp?" class="active">聊天室</a></li>
             </ul>
         </nav>
     </div>
