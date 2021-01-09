@@ -172,10 +172,10 @@
 </body>
 
 <script type="text/javascript">
-    var userList=[];
     var fromname="${sessionScope.user.username}";
     var websocket = null;
     var toname ="${requestScope.saler}";
+    var userList=[toname];
 
     /*alert("您正在和"+toname+"交流")*/
 

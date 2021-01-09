@@ -122,7 +122,7 @@ public class UserServlet extends BaseServlet {
 
     protected void set(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        System.out.println("===========================已经收到请求");
+
         HttpSession session = request.getSession();
         User olduser = (User) session.getAttribute("user");
 
@@ -145,6 +145,7 @@ public class UserServlet extends BaseServlet {
         User user = new User(olduser.getId(), newusername, newpassword, newemail, olduser.getTrade_number());
         UserService userService = new UserServiceImpl();
         userService.setUser(user);
+        request.getRequestDispatcher("message?action=messageList").forward(request,response);
     }
 
     protected void uploadIcon(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
