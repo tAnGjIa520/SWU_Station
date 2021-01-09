@@ -1,6 +1,6 @@
 package com.tangjia.dao.impl;
 
-import com.tangjia.Utils.JDBCutils;
+import  com.tangjia.Utils.JDBCutils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;

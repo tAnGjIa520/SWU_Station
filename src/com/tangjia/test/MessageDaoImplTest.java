@@ -16,7 +16,7 @@ public class MessageDaoImplTest {
     @Test
     public void addMessage() {
 
-        Message message = new Message(null,4,"5555",new Date(),5,1,"很好用！！");
+        Message message = new Message(null,4,"11111",new Date(),5,1,"非常好用！！！！");
         messageDao.addMessage(message);
     }
 

@@ -39,4 +39,7 @@ public interface MessageDao {
      * @return
      */
     public List<Message> querryMessageForOrder(String goodId);
+
+    public Message querryById(Integer id);
+
 }

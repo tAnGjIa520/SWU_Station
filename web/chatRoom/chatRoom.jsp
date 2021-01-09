@@ -164,14 +164,13 @@
                     </div>
                 </div>
             </div>
-
             <%--=================================--%>
             <hr/>
        </div>
     <%@ include file="/default/static/footer.jsp"%>
     </div>
 </body>
-<%--websocket--%>
+
 <script type="text/javascript">
     var userList=[];
     var fromname="${sessionScope.user.username}";
@@ -259,6 +258,7 @@
         }
     })
 </script>
+
 <script type="text/javascript">
     $(function(){
 
@@ -319,6 +319,7 @@
         })
     })
 </script>
+
 <script type="text/javascript">
     showChat=function (name) {
         toname=name
@@ -381,4 +382,5 @@
         )
     }
 </script>
+
 </html>

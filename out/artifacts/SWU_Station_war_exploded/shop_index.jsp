@@ -130,7 +130,18 @@
                <div class="templatemo-content-widget white-bg col-2">
 
                    <div class="square"></div>
-                   <h2 class="templatemo-inline-block">${good.goodname} <span style="color: grey">${good.price}￥</span><a href="userServlet?action=chatWithSaler&salerId=${good.saler}" target="_blank"><span class="badge" >私聊卖家</span></a></h2><hr>
+                   <h2 class="templatemo-inline-block">${good.goodname} <span style="color: grey">${good.price}￥</span>
+                       <c:if test="${good.saler!=sessionScope.user.id}">
+                       <a href="userServlet?action=chatWithSaler&salerId=${good.saler}" target="_blank">
+                           <span class="badge" >私聊卖家</span>
+                       </a>
+                       </c:if>
+                       <c:if test="${good.saler==sessionScope.user.id}">
+                           <span class="badge" >我的商品</span>
+                       </c:if>
+                   </h2>
+                   <hr>
+
 
                    <img src="photoServlet?icon=${good.id}" style="height: 200px;width:200px" alt="Bicycle"><br>
                    <div  >
@@ -149,7 +160,15 @@
                <div class="templatemo-content-widget white-bg col-2">
 
                    <div class="square"></div>
-                   <h2 class="templatemo-inline-block">${good.goodname} <span style="color: grey">${good.price}￥</span><a href="userServlet?action=chatWithSaler&salerId="+${good.saler} target="_blank"><span class="badge" >私聊卖家</span></a></h2><hr>
+                   <h2 class="templatemo-inline-block">${good.goodname} <span style="color: grey">${good.price}￥</span>
+                       <c:if test="${good.saler!=sessionScope.user.id}">
+                           <a href="userServlet?action=chatWithSaler&salerId=${good.saler}" target="_blank">
+                               <span class="badge" >私聊卖家</span>
+                           </a>
+                       </c:if>
+                       <c:if test="${good.saler==sessionScope.user.id}">
+                           <span class="badge" >我的商品</span>
+                       </c:if></h2><hr>
 
                    <img src="photoServlet?icon=${good.id}" style="height: 200px;width:200px" alt="Bicycle"><br>
                    <div  >
@@ -173,7 +192,15 @@
                <div class="templatemo-content-widget white-bg col-2">
 
                    <div class="square"></div>
-                   <h2 class="templatemo-inline-block">${good.goodname} <span style="color: grey">${good.price}￥</span><a href="userServlet?action=chatWithSaler&salerId="+${good.saler} target="_blank"><span class="badge" >私聊卖家</span></a></h2><hr>
+                   <h2 class="templatemo-inline-block">${good.goodname} <span style="color: grey">${good.price}￥</span>
+                       <c:if test="${good.saler!=sessionScope.user.id}">
+                           <a href="userServlet?action=chatWithSaler&salerId=${good.saler}" target="_blank">
+                               <span class="badge" >私聊卖家</span>
+                           </a>
+                       </c:if>
+                       <c:if test="${good.saler==sessionScope.user.id}">
+                           <span class="badge" >我的商品</span>
+                       </c:if></h2><hr>
 
                    <img src="photoServlet?icon=${good.id}" style="height: 200px;width:200px" alt="Bicycle"><br>
                    <div  >

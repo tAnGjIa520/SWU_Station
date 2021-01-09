@@ -65,9 +65,6 @@ public class WebSocket extends HttpServlet{
 			}
 		}
 
-		/**
-		 * 连接关闭调用的方法
-		 */
 		@OnClose
 		public void onClose(){
 			webSocketSet.remove(this);  //从set中删除

@@ -59,8 +59,6 @@ public class MessageServlet extends BaseServlet {
             System.out.println(message);
         }
 
-
-
         request.setAttribute("messageList",messages);
         request.getRequestDispatcher("main_index.jsp").forward(request,response);
 
