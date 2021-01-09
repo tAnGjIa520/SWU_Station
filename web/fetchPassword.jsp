@@ -3,12 +3,17 @@
 	<head>
 		<title>登陆界面</title>
 		<%@ include file="default/static/header.jsp"%>
+	<style type="text/css">
+		span{color: red;font-size: 12px; display: none;}
+		.classA{position: relative; left: 60px;}
+	</style>
 	<script type="text/javascript">
 		$(function () {
 			$("#codeimg").click(function () {
 				this.src="authServlet?apple="+new Date();
 			})
 		})
+
 
 
 	</script>
@@ -27,14 +32,16 @@
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
 		              <input type="text" class="form-control" placeholder="用户名" id="username">
-		          	</div>	
+		          	</div>
+					<span id="tip-name" class="classA">用户名必须为8-12为字母或数字！</span>
 	        	</div>
 	        	<!--================================-->
 	        	<div class="form-group">
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>	        		
-		              	<input type="password"placeholder="注册邮箱" class="form-control" id="mail" >
-		          	</div>	
+		              	<input type="text"placeholder="注册邮箱" class="form-control" id="mail" >
+		          	</div>
+					<span id="tip-Mailbox" class="classA">邮箱格式不正确！</span>
 	        	</div>
 				<br>
 				<div class="form-group">
@@ -48,7 +55,7 @@
 		</div>
 		<%@ include file="/default/static/footer.jsp"%>
 	</body>
-<script>
+<script type="text/javascript">
 	var TIME=60;
 	var time = 60;
 	//倒计时
@@ -89,13 +96,71 @@
 		)
 
 		$("#fetch").attr("disabled",true);
-
-
 		getRandomCode();
-
 	}
 
+	var iptName=document.getElementById('username');
+	var iptMailbox=document.getElementById('mail');
+	var tipName=document.getElementById('tip-name');
+	var tipMailbox=document.getElementById('tip-Mailbox');
 
+	$("#username").blur(function () {
+		valUserName();
+		/* $("#isSuccess").css("display","inline");*/
+		/*        alert($("#txt-name").val());*/
+		$.get(
+				"userServlet",
+				{
+					action:"isExist",
+					username:$("#txt-name").val()
+				}
+				,function (data) {
+					if(data=="1"){
+						$("#isSuccess").css("display","inline");
+						$("#isSuccess2").css("display","none");
+					}else{
+						$("#isSuccess").css("display","none");
+						$("#isSuccess2").css("display","inline");
+					}
+				}
+				,"text"
+
+		)
+	})
+
+
+	$("#mail").blur(function () {
+		valMailbox();
+	})
+
+	function valUserName() {
+		var p=/^\w\w{7,11}$/;//用户名必须为8-12为字母或数字
+		var r=p.test(iptName.value);//校验
+		if(!r){
+			//校验不通过
+			tipName.style.display='inline-block';//显示
+			iptName.focus();
+			return false;
+		}
+		else{
+			tipName.style.display='none';
+			return true;
+		}
+	}
+
+	function valMailbox(){
+		var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+		var r=reg.test(iptMailbox.value);
+		if(!r){
+			tipMailbox.style.display='inline-block';
+			iptMailbox.focus();
+			return false;
+		}
+		else{
+			tipMailbox.style.display='none';
+			return true;
+		}
+	}
 
 </script>
 </html>

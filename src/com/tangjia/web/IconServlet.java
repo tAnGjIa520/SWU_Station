@@ -57,16 +57,29 @@ public class IconServlet extends HttpServlet {
                     HttpSession session = req.getSession();
                     User user = (User) session.getAttribute("user");
                     int id = user.getId();
+                    /**/
+                    String path =super.getServletContext().getRealPath("/userIcon");
+                    File[] f=new File(path).listFiles();
+                    for(File i:f){
+                        if (i.getName().startsWith(id+"")){
+                            i.delete();
+                        }
+                    }
 
+
+                    /**/
                     String fileName = id+"."+ FilenameUtils.getExtension(item.getName());
                     System.out.println(fileName);
 
-                    String path =super.getServletContext().getRealPath("/userIcon");
+
                     System.out.println(path);
                     userService.updateIcon(id,fileName);
                     File file = new File(path + File.separatorChar + fileName);
                     System.out.println(file.getAbsolutePath());
                     item.write(file);
+
+
+                    //
                 }
             }
 
@@ -75,7 +88,7 @@ public class IconServlet extends HttpServlet {
         catch (Exception e){
             e.printStackTrace();
         }
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("message?action=messageList");
+        req.getRequestDispatcher("message?action=messageList").forward(req,resp);
     }
 
     @Override
@@ -87,12 +100,12 @@ public class IconServlet extends HttpServlet {
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");
         int id = user.getId();
-/**/
+
         String articlePhotoId = request.getParameter("articlePhotoId");
         if (articlePhotoId!=null){
             id=Integer.parseInt(articlePhotoId);
         }
-/**/
+
         File[] f=file.listFiles();
 
         for(File i:f){
