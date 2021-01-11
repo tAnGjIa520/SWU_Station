@@ -108,7 +108,8 @@ public class UserServlet extends BaseServlet {
                 request.getRequestDispatcher("/register.jsp").forward(request,response);
                 return;
             }
-            session.setAttribute("user" ,user);
+            User user1 = userService.queryByUsername(user.getUsername());
+            session.setAttribute("user" ,user1);
 
             request.getRequestDispatcher("/main_index.jsp").forward(request,response);
         }else {
@@ -144,6 +145,7 @@ public class UserServlet extends BaseServlet {
         System.out.println("====================================");
         User user = new User(olduser.getId(), newusername, newpassword, newemail, olduser.getTrade_number());
         UserService userService = new UserServiceImpl();
+        session.setAttribute("user",user);
         userService.setUser(user);
         request.getRequestDispatcher("message?action=messageList").forward(request,response);
     }

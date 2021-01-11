@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import java.sql.Time;
 import java.util.Date;
+import java.util.List;
 
 
 import static org.junit.Assert.*;
@@ -47,5 +48,13 @@ public class UserDaoImplTest {
     public void test(){
         User user = userDao.queryByUserNameEmail("ro4", "email");
         System.out.println(user);
+    }
+
+    @Test
+    public void queryAll(){
+        List<User> users = userDao.queryAll();
+        for (User user:users){
+            System.out.println(user);
+        }
     }
 }

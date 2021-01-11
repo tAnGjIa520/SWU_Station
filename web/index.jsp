@@ -55,6 +55,9 @@
 		<div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
 			<p><strong><a href="fetchPassword.jsp" class="blue-text">忘记密码</a></strong></p>
 		</div>
+		<div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
+			<p><strong><a href="manager_index.jsp" class="blue-text">管理员界面</a></strong></p>
+		</div>
 		<%@ include file="/default/static/footer.jsp"%>
 	</body>
 </html>

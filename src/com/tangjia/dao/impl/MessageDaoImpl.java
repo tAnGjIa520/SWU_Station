@@ -21,7 +21,7 @@ public class MessageDaoImpl extends BaseDao implements MessageDao {
      */
     @Override
     public int addMessage(Message meaasge) {
-        Gson gson = new Gson();
+       /* Gson gson = new Gson();
         String s = gson.toJson(meaasge);
         Jedis connection = JedisUtils.getConnection();
         connection.sadd(String.valueOf(meaasge.getSalerId()),s);
@@ -30,6 +30,9 @@ public class MessageDaoImpl extends BaseDao implements MessageDao {
         return update(sql,meaasge.getId(),meaasge.getSalerId(),meaasge.getOrderId(),meaasge.getDate(),meaasge.getLevel(),meaasge.getClientId(),meaasge.getMark());
 
 
+*/
+        String sql="INSERT INTO Message (id,salerId,orderId,date,level,clientId,mark) VALUES (?,?,?,?,?,?,?)";
+        return update(sql,meaasge.getId(),meaasge.getSalerId(),meaasge.getOrderId(),meaasge.getDate(),meaasge.getLevel(),meaasge.getClientId(),meaasge.getMark());
 
 
     }
@@ -53,7 +56,7 @@ public class MessageDaoImpl extends BaseDao implements MessageDao {
      */
     @Override
     public List<Message> querryMessageForSaler(Integer salerId) {
-        Gson gson = new Gson();
+        /*Gson gson = new Gson();
         Jedis connection = JedisUtils.getConnection();
         List<Message> messageList = new LinkedList<>();
         Set<String> smembers = connection.smembers(String.valueOf(salerId));
@@ -76,8 +79,9 @@ public class MessageDaoImpl extends BaseDao implements MessageDao {
 
         }
         connection.close();
-        return messageList;
-
+        return messageList;*/
+        String sql="select * from Message where salerId=?;";
+        return queryForList(Message.class, sql, salerId);
 
     }
 

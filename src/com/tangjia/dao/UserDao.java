@@ -2,6 +2,8 @@ package com.tangjia.dao;
 
 import com.tangjia.pojo.User;
 
+import java.util.List;
+
 public interface UserDao {
     //基本思路增删查改
     public int addUser(User user);
@@ -17,5 +19,11 @@ public interface UserDao {
     public User queryUser(Integer id);
 
     public User queryByUserNameEmail(String username,String email);
+
+    public List<User> queryAll();
+
+    public int deleteUser(int id);
+
+
 
 }

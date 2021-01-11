@@ -5,6 +5,8 @@ import com.tangjia.dao.impl.UserDaoImpl;
 import com.tangjia.pojo.User;
 import com.tangjia.service.UserService;
 
+import java.util.List;
+
 public class UserServiceImpl implements UserService {
     UserDao userDao=new UserDaoImpl();
     @Override
@@ -61,5 +63,15 @@ public class UserServiceImpl implements UserService {
     public User queryByUsername(String username) {
         User user = userDao.queryUserByUsername(username);
         return user;
+    }
+
+    @Override
+    public List<User> queryAll() {
+        return userDao.queryAll();
+    }
+
+    @Override
+    public int deleteUser(int id) {
+        return userDao.deleteUser(id);
     }
 }

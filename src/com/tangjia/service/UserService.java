@@ -3,6 +3,7 @@ package com.tangjia.service;
 import com.tangjia.pojo.User;
 
 import javax.swing.undo.UndoableEditSupport;
+import java.util.List;
 
 public interface UserService {
 
@@ -39,4 +40,9 @@ public interface UserService {
     public User fetchPassword(String username,String email);
 
     public User queryByUsername(String username);
+
+    public List<User> queryAll();
+
+    public int deleteUser(int id);
+
 }

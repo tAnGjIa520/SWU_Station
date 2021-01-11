@@ -4,7 +4,7 @@
 		<title>登陆界面</title>
 		<%@ include file="default/static/header.jsp"%>
 	<style type="text/css">
-		span{color: red;font-size: 12px; }
+		span{color: red;font-size: 12px; display: none;}
 		.classA{position: relative; left: 60px;}
 	</style>
 	<script type="text/javascript">

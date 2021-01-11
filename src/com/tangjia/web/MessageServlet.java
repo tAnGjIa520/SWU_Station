@@ -5,8 +5,10 @@ import com.tangjia.pojo.Message;
 import com.tangjia.pojo.User;
 import com.tangjia.service.MessageService;
 import com.tangjia.service.OrderItemService;
+import com.tangjia.service.UserService;
 import com.tangjia.service.impl.MessageServiceImpl;
 import com.tangjia.service.impl.OrderItemServiceImpl;
+import com.tangjia.service.impl.UserServiceImpl;
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.ServletException;
@@ -64,5 +66,7 @@ public class MessageServlet extends BaseServlet {
 
 
     }
+
+
 
 }

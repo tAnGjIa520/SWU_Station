@@ -92,12 +92,12 @@
         var  p=r.test(iptPrice.value);
         if (!p){
             tipPrice.style.display = 'inline-block';
-            iptPrice.focus();
+
             return false;
         }
         else{
             tipPrice.style.display = 'none';
-            iptPrice.focus();
+
             return true;
         }
     }

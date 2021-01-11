@@ -6,14 +6,16 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class Filter implements javax.servlet.Filter {
+    @Override
     public void destroy() {
     }
 
+    @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain
             filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         HttpSession session = httpServletRequest.getSession();
-        Object user = session.getAttribute("user");
+        Object user = session.getAttribute("root");
 // 如果等于 null， 说明还没有登录
         if (user == null) {
             servletRequest.getRequestDispatcher("/index.jsp").forward(servletRequest,servletResponse);
@@ -24,6 +26,7 @@ public class Filter implements javax.servlet.Filter {
         }
     }
 
+    @Override
     public void init(FilterConfig config) throws ServletException {
 
     }

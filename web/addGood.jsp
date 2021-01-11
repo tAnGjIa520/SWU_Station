@@ -67,7 +67,7 @@
     })
 
     //设置商品
-    function setGood() {
+   /* function setGood() {
         var r=/^$/;
         var p=r.test(iptGood.value);
         if(p){
@@ -82,9 +82,9 @@
         }
     }
 
-
+*/
     //设置价格
-    function setPrice(){
+   /* function setPrice(){
         var  r=/^[0-9]*[1-9][0-9]*$/;
         var  p=r.test(iptPrice.value);
         if (!p){
@@ -97,6 +97,6 @@
             iptPrice.focus();
             return true;
         }
-    }
+    }*/
 </script>
 </html>
