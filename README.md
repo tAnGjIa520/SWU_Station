@@ -1,23 +1,17 @@
-# SWU_Station
- 唐嘉的 java网站
+Website Name: Xida Micro Store 
 
-网站名字：西大微店
+Core Business: A second-hand trading platform providing a reliable trading website for Xidian University students.
 
-核心业务:一个二手交易平台，提供给西大学子一个可靠的交易网站
+Modules:
 
+User registration and login interface
 
-模块：
+Posting items for sale
 
-1. 用户注册登录界面
+Trading items
 
-2. 发布商品
-3. 交易商品
+Contact Information:
 
-联系方式：
+Tang Jia: 17369705169
 
-唐嘉：17369705169
-
-网站正在建设当中，有些功能尚不完善！
-
-
-
+The website is still under construction, and some features are not yet fully developed.
